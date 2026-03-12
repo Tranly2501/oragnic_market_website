@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <title>Hồ sơ của tôi - Vegefoods</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css"> <link rel="stylesheet" href="css/profile.css"> <style>
+        /* Tui fix thêm một chút để không bị đè màu của trang index */
+        .user-profile-section { background: #f8f9fa; padding: 4em 0; }
+        .profile-sidebar, .info-card { background: #fff; border-radius: 10px; box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.1); padding: 30px; }
+        .nav-link img { width: 20px; height: 20px; } /* Đảm bảo icon tìm kiếm/giỏ hàng không bị to quá */
+        .avatar-circle { width: 60px; height: 60px; background: #82ae46; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-bottom: 10px; }
+        /* TAB */
+.tab-content{
+display:none;
+}
+
+.tab-content.active{
+display:block;
+}
+    </style>
+    
+</head>
+<body class="goto-here">
+
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Vegefoods</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="index.html" class="nav-link">TRANG CHỦ</a></li>
+                    <li class="nav-item"><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">TIN TỨC</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li>
+                    
+                    <li class="nav-item cta cta-colored"><a href="search.html" class="nav-link"><img src="images/icon/search.svg" alt="Search"></a></li>
+                    <li class="nav-item cta cta-colored"><a href="wishlist.html" class="nav-link"><img src="images/icon/heart.svg" alt="Wishlist"></a></li>
+                    <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a></li>
+                    <li class="nav-item cta cta-colored active"><a href="profile.html" class="nav-link"><img src="images/icon/account.svg" alt="Account"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="user-profile-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="profile-sidebar">
+                        <div class="text-center mb-4">
+                            <div class="avatar-circle mx-auto">NA</div>
+                            <h5 class="mb-0">Nguyễn Hoài Anh</h5>
+                            <small class="text-muted">Thành viên Bạc</small>
+                        </div>
+                     <ul class="list-unstyled">
+    <li class="py-2 border-bottom">
+        <a href="#" class="text-success font-weight-bold" onclick="showTab('profile')">
+        Thông tin cá nhân
+        </a>
+    </li>
+
+    <li class="py-2 border-bottom">
+        <a href="#" class="text-dark" onclick="showTab('address')">
+        Địa chỉ của tôi
+        </a>
+    </li>
+
+    <li class="py-2">
+        <a href="#" class="text-danger" onclick="logout()">
+        Đăng xuất
+        </a>
+    </li>
+</ul>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-lg-9">
+
+    <div class="row mb-4">
+
+        <div class="col-md-4 mb-3">
+            <div class="info-card text-center py-4" onclick="showTab('orders')" style="cursor:pointer;">
+                <h2 class="text-success mb-0">05</h2>
+                <span class="text-muted small uppercase">Đơn hàng</span>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="info-card text-center py-4" onclick="showTab('shipping')" style="cursor:pointer;">
+                <h2 class="text-success mb-0">02</h2>
+                <span class="text-muted small uppercase">Đang giao</span>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="info-card text-center py-4" onclick="showTab('review')" style="cursor:pointer;">
+                <h2 class="text-success mb-0">10</h2>
+                <span class="text-muted small uppercase">Đánh giá</span>
+            </div>
+        </div>
+
+    </div>
+    <div id="orders" class="tab-content" style="display:none;">
+    <h4>Đơn hàng của tôi</h4>
+    <p>Danh sách đơn hàng sẽ hiển thị ở đây.</p>
+</div>
+
+<div id="shipping" class="tab-content" style="display:none;">
+    <h4>Đơn đang giao</h4>
+    <p>Danh sách đơn đang giao sẽ hiển thị ở đây.</p>
+</div>
+
+<div id="review" class="tab-content" style="display:none;">
+    <h4>Đánh giá của tôi</h4>
+    <p>Các đánh giá sản phẩm sẽ hiển thị ở đây.</p>
+</div>
+                   <div class="info-card">
+
+<!-- THÔNG TIN CÁ NHÂN -->
+<div id="profile" class="tab-content active">
+
+<h4 class="mb-4">Thông tin cá nhân</h4>
+
+<form>
+<div class="form-group row">
+<label class="col-sm-3 col-form-label">Tên đăng nhập</label>
+<div class="col-sm-9">
+<input type="text" class="form-control" value="">
+</div>
+</div>
+
+<div class="form-group row">
+<label class="col-sm-3 col-form-label">Họ và tên</label>
+<div class="col-sm-9">
+<input type="text" class="form-control" value="">
+</div>
+</div>
+
+<div class="form-group row">
+<label class="col-sm-3 col-form-label">Email</label>
+<div class="col-sm-9">
+<input type="email" class="form-control" value="">
+</div>
+</div>
+
+<div class="form-group row">
+<label class="col-sm-3 col-form-label">Số điện thoại</label>
+<div class="col-sm-9">
+<input type="text" class="form-control" value="">
+</div>
+</div>
+
+<div class="text-right">
+<button class="btn btn-primary py-2 px-4">
+Lưu thay đổi
+</button>
+</div>
+
+</form>
+
+</div>
+
+
+<!-- ĐỊA CHỈ -->
+<div id="address" class="tab-content">
+
+<h4 class="mb-4">Địa chỉ của tôi</h4>
+
+<div class="form-group row">
+<label class="col-sm-3 col-form-label">Địa chỉ 1</label>
+<div class="col-sm-9">
+<input type="text" class="form-control" value="">
+</div>
+</div>
+
+<div class="form-group row">
+<label class="col-sm-3 col-form-label">Địa chỉ 2</label>
+<div class="col-sm-9">
+<input type="text" class="form-control" value="">
+</div>
+</div>
+
+<div class="text-right">
+<button class="btn btn-primary py-2 px-4">
+Lưu thay đổi
+</button>
+</div>
+</div>
+
+
+<!-- VOUCHER -->
+<div id="voucher" class="tab-content">
+
+<h4 class="mb-4">Mã giảm giá</h4>
+
+<p>SALE10 - Giảm 10%</p>
+<p>FREESHIP - Miễn phí vận chuyển</p>
+
+</div>
+
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>// profile
+
+
+function showTab(tabId){
+
+let tabs = document.querySelectorAll(".tab-content");
+
+tabs.forEach(function(tab){
+tab.classList.remove("active");
+});
+
+document.getElementById(tabId).classList.add("active");
+
+}
+
+function logout(){
+
+alert("Đã đăng xuất");
+
+window.location.href="login.html";
+
+}
+
+
+function showTab(tab){
+
+let tabs = document.querySelectorAll(".tab-content");
+
+tabs.forEach(function(t){
+    t.style.display = "none";
+});
+
+document.getElementById(tab).style.display = "block";
+
+}</script>
+</body>
+</html>

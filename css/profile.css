@@ -1,0 +1,146 @@
+/* Đẩy toàn bộ trang xuống để không bị Navbar đè lên */
+.user-profile-section {
+    padding: 120px 0 80px 0 !important;
+    background-color: #f8f9fa;
+}
+
+/* Container luôn nằm giữa */
+.user-profile-section .container {
+    max-width: 1140px;
+    margin: auto;
+}
+
+/* Sidebar bên trái */
+.profile-sidebar {
+    background: #fff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    height: 100%;
+}
+
+/* Avatar */
+.avatar-circle {
+    width: 80px;
+    height: 80px;
+    background: #82ae46;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0 auto 15px auto;
+}
+
+/* Menu sidebar */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+.sidebar-menu li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.sidebar-menu li:last-child {
+    border-bottom: none;
+}
+
+.sidebar-menu li a {
+    color: #333;
+    display: block;
+    transition: 0.3s;
+    text-decoration: none !important;
+    font-weight: 500;
+}
+
+.sidebar-menu li a:hover,
+.sidebar-menu li.active a {
+    color: #82ae46;
+    padding-left: 6px;
+}
+
+/* Card thống kê */
+.stat-card {
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border-bottom: 4px solid transparent;
+}
+
+.stat-card:hover {
+    border-bottom: 4px solid #82ae46;
+    transform: translateY(-5px);
+}
+
+.stat-card h2 {
+    color: #82ae46;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-card span {
+    color: #888;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* Card chứa form */
+.info-card {
+    background: #fff;
+    padding: 35px 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    margin-top: 30px;
+}
+
+.info-card h4 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* Form */
+.form-group label {
+    font-weight: 600;
+    color: #555;
+}
+
+.form-control {
+    height: 45px !important;
+    border-radius: 6px !important;
+    border: 1px solid #ddd;
+    padding-left: 10px;
+}
+
+.form-control:focus {
+    border-color: #82ae46;
+    box-shadow: none;
+}
+
+/* Fix icon navbar */
+.navbar-nav .nav-item img {
+    width: 20px !important;
+    height: 20px !important;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Tab */
+.tab-content{
+    display: none;
+}
+
+.tab-content.active{
+    display: block;
+}
+

@@ -1,0 +1,288 @@
+/* CHON DANH MỤC SẢN PHẨM */
+
+.col-lg-3 {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+.category-list{
+list-style: none;
+padding: 0;
+margin: 0;
+}
+.category-list li{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 12px 15px;
+margin-bottom: 10px;
+cursor: pointer;
+border-radius: 6px;
+transition: all 0.3s;
+}
+/* icon và chữ cho danh mục */
+.category-list .left{
+display: flex;
+align-items: center;
+gap: 8px;
+color: #82ae46;
+}
+.category-list .left i{
+color: #82ae46;
+}
+.category-list .count{
+color: #666;
+font-size: 14px;
+}
+.category-list li:hover{
+background: #82ae46;
+}
+.category-list li:hover .left,
+.category-list li:hover i,
+.category-list li:hover .count{
+color: white;
+}
+.category-list li.active{
+background: #82ae46;
+}
+
+.category-list li.active .left,
+.category-list li.active i,
+.category-list li.active .count{
+color: white;
+}
+
+/* CHI TIẾT SẢN PHẨM */
+.form-group .unit button {
+ margin-right: 1rem;
+    padding: 10px 25px;
+    border-radius: 8px;
+        cursor: pointer;
+}
+.form-group .unit  button.active {
+    background-color:  #82ae46;
+    color: #ffffff;
+
+}
+
+/* LỌC THEO GIÁ */
+.price-filter{
+  width:250px;
+}
+
+.price-filter h4{
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+#priceRange{
+  width:100%;
+  appearance:none;
+  height:6px;
+  background:#ddd;
+  border-radius:10px;
+  outline:none;
+}
+
+#priceRange::-webkit-slider-thumb{
+  appearance:none;
+  width:16px;
+  height:16px;
+  background:#7bbd00;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+#priceRange::-moz-range-thumb{
+  width:16px;
+  height:16px;
+  background:#7bbd00;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+#priceValue{
+  margin-top:10px;
+  font-size:16px;
+}
+
+
+/* BUTTON ĐƠN VỊ */
+.unit{
+display:flex;
+gap:8px;
+}
+
+.unit button{
+
+padding:6px 14px;
+border:1px solid #ccc;
+background:white;
+cursor:pointer;
+transition:0.3s;
+}
+.unit button:hover{
+border-color:#82ae46;
+}
+.unit button.active{
+background:#82ae46;
+color:white;
+border-color:#82ae46;
+
+}
+
+
+
+
+
+#cart-toast{
+
+position:fixed;
+top:20px;
+right:20px;
+
+background:#82ae46;
+color:white;
+
+padding:12px 20px;
+border-radius:6px;
+
+font-size:14px;
+
+opacity:0;
+transform:translateY(-20px);
+
+transition:0.4s;
+
+z-index:9999;
+
+}
+
+#cart-toast.show{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+
+
+
+
+
+/* ===== BẢNG GIỎ HÀNG ===== */
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#82ae46;
+color:white;
+padding:15px;
+font-weight:500;
+text-align:center;
+}
+
+td{
+padding:25px 10px;
+vertical-align:middle;
+text-align:center;
+border-bottom:1px solid #eee;
+}
+
+
+/* ===== HÌNH SẢN PHẨM ===== */
+
+.image-prod .img{
+width:100px;
+height:100px;
+background-size:cover;
+background-position:center;
+margin:auto;
+}
+
+
+/* ===== TÊN SẢN PHẨM ===== */
+
+.product-name h3{
+font-size:20px;
+margin-bottom:5px;
+}
+
+.product-name p{
+color:#888;
+font-size:14px;
+margin:0;
+}
+
+
+/* ===== GIÁ ===== */
+
+.price{
+font-size:16px;
+font-weight:500;
+}
+
+.total{
+font-size:16px;
+font-weight:500;
+}
+
+
+/* ===== NÚT XOÁ ===== */
+
+.product-remove a{
+border:1px solid #ddd;
+padding:6px 10px;
+color:#000;
+text-decoration:none;
+}
+
+.product-remove a:hover{
+background:#82ae46;
+color:white;
+border-color:#82ae46;
+}
+
+
+/* ===== NÚT CỘNG TRỪ  trong Cart ,wishlist===== */
+
+.quantity-control{
+display:flex;
+align-items:center;
+justify-content:center;
+border:1px solid #ddd;
+border-radius:30px;
+overflow:hidden;
+width:120px;
+margin:auto;
+background:#fff;
+}
+
+.quantity-control button{
+width:40px;
+height:40px;
+border:none;
+background:#fff;
+font-size:18px;
+cursor:pointer;
+}
+
+.quantity-control input{
+width:40px;
+border:none;
+text-align:center;
+font-size:16px;
+outline:none;
+}
+
+.quantity-control button:hover{
+background:#82ae46;
+color:white;
+}
+
+.qty{
+width:40px !important;
+}

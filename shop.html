@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title>Vegefoods-shop</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+ <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/myStyle.css">
+  </head>
+  <body class="goto-here">
+	
+    
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+    <div class="container d-flex align-items-center">
+    <!-- LOGO -->
+         <a class="navbar-brand" href="index.html">Vegefoods</a>
+       <!-- NÚT MENU MOBILE -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#ftco-nav" aria-controls="ftco-nav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu </button>
+        <!-- NAVBAR -->
+        <div class="collapse navbar-collapse" id="ftco-nav">
+         <!-- MENU Ở GIỮA -->
+            <ul class="navbar-nav mx-auto navbar-center">
+                <li class="nav-item active"><a href="index.html" class="nav-link">TRANG CHỦ</a></li>
+          <li class="nav-item "><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">TIN TỨC</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li></ul>
+
+            <!-- ICON BÊN PHẢI -->
+           <ul class="navbar-nav navbar-icons">
+              <li class="nav-item cta cta-colored"><a href="search.html" class="nav-link"><img src="images/icon/search.svg" alt="Search"></a>
+                </li>
+                <li class="nav-item cta cta-colored"><a href="wishlist.html" class="nav-link"><img src="images/icon/heart.svg" alt="Wishlist"></a>
+                </li>
+                <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a>
+                </li> 
+                <li class="nav-item cta cta-colored"><a href="login.html" class="nav-link"><img src="images/icon/account.svg" alt="Account"></a>
+                </li> 
+              </ul>
+        </div>
+    </div>
+</nav>
+    <!-- END nav -->
+
+    <div class="hero-wrap hero-bread" style="background-image: url('images/bg_10.png');  
+      background-color: rgba(108, 95, 95, 0.522); 
+    background-blend-mode: darken;">
+		 
+      <div class="container">
+        
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang Chủ </a></span> <span>Sản Phẩm</span></p>
+            <h1 class="mb-0 bread">Sản Phẩm</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+                                                <!-- ======  PHẦN GIỮA ======= -->
+    <section class="ftco-section">
+              <div class="container">
+              <div class="row">
+      <!-- ===== SIDEBAR  BÊN TRÁI ===== -->
+      <div class="col-lg-3 mb-4">
+        <div class="category-box">
+            <h4>Danh mục</h4>
+           <ul class="category-list">
+           <li data-category="Tất cả" onclick="filterProducts('Tất cả')"><span class="left"><i class="fa fa-th-large"></i> Tất cả</span><span class="count">(0)</span></li>
+           <li data-category="Rau củ" onclick="filterProducts('Rau củ')"><span class="left"><i class="fa fa-carrot"></i> Rau củ</span><span class="count">(0)</span></li>
+           <li data-category="Trái cây" onclick="filterProducts('Trái cây')"><span class="left"><i class="fa fa-apple-alt"></i> Trái cây</span><span class="count">(0)</span></li>
+           <li data-category="Nước ép" onclick="filterProducts('Nước ép')"><span class="left"><i class="fa fa-glass-whiskey"></i> Nước ép</span><span class="count">(0)</span></li>
+           <li data-category="Hạt" onclick="filterProducts('Hạt')"><span class="left"><i class="fa fa-seedling"></i> Hạt</span><span class="count">(0)</span></li></ul>
+        </div>
+        <hr>
+
+           <!-- Thanh lọc giá -->
+       
+         <h5 class="price-box">Giá</h5>
+         <input type="range"
+         id="priceRange"
+         min="0"
+         max="1000000"
+         value="0"
+         step="10000"
+         oninput="updatePrice()">
+         <p id="priceValue">0 VND</p>
+
+
+        <!-- SẮP XẾP -->
+        <h5 class="mb-2">Sắp xếp</h5>
+        <select class="form-control"
+          id="sortSelect"
+          onchange="applyFilters()">
+          <option value="">Sắp xếp theo giá</option>
+          <option value="asc">Giá tăng dần</option>
+          <option value="desc">Giá giảm dần</option>
+        </select>
+      </div>
+
+      <!-- =====PRODUCT LIST ======-->
+      <div class="col-lg-9">
+          <div class="row" id="product-list">
+            <!-- Render sản phẩm ở phía dưới -->
+          </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+                                                 <!-- ====== BẢN TIN ======-->
+		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+      <div class="container py-4">
+        <div class="row d-flex justify-content-center py-5">
+          <div class="col-md-6">
+          	<h2 style="font-size: 22px;" class="mb-0">Đăng ký nhận bản tin của chúng tôi</h2>
+          	<span>Nhận thông tin cập nhật qua email về các cửa hàng mới nhất và các ưu đãi đặc biệt</span>
+          </div>
+          <div class="col-md-6 d-flex align-items-center">
+            <form action="contact.html" class="subscribe-form">
+              <div class="form-group d-flex">
+                <input type="text" class="form-control" placeholder="Nhập địa chỉ email của bạn">
+                <input type="submit" value="Đăng Ký" class="submit px-3">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="ftco-section testimony-section">
+        <div class="container">
+          <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section ftco-animate text-center">
+                <span class="subheading">Lời khai</span>
+              <h2 class="mb-4">Các thành viên trong nhóm của chúng tôi</h2>
+              <p>Xa thật xa, phía sau những ngọn núi chữ, cách xa các quốc gia Vokalia và Consonantia, có những đoạn văn mù sinh sống. Chúng sống tách biệt ở...</p>
+            </div>
+          </div>
+          <div class="row ftco-animate">
+            <div class="col-md-12">
+              <div class="carousel-testimony owl-carousel">
+                <div class="item">
+                  <div class="testimony-wrap p-4 pb-5">
+                    <div class="user-img mb-5" style="background-image: url(images/person_4.jpg)">
+                      <span class="quote d-flex align-items-center justify-content-center">
+                        <i class="icon-quote-left"></i>
+                      </span>
+                    </div>
+                    <div class="text text-center">
+                      <p class="mb-5 pl-4 line">Để làm được điều này, lập trình viên viết mã CSS, HTML và JavaScript để hướng dẫn trình duyệt cách hiển thị trang web một cách trực quan.</p>
+                      <p class="name">Susant Kumar Mohapatra</p>
+                      <span class="position">Web Developer</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="testimony-wrap p-4 pb-5">
+                    <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
+                      <span class="quote d-flex align-items-center justify-content-center">
+                        <i class="icon-quote-left"></i>
+                      </span>
+                    </div>
+                    <div class="text text-center">
+                      <p class="mb-5 pl-4 line">Họ có thể tạo ra phong cách hình ảnh cho trang web phù hợp với hướng dẫn phong cách của công ty.</p>
+                      <p class="name">Nitish Kumar Patnaik</p>
+                      <span class="position">Interface Designer</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="testimony-wrap p-4 pb-5">
+                    <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
+                      <span class="quote d-flex align-items-center justify-content-center">
+                        <i class="icon-quote-left"></i>
+                      </span>
+                    </div>
+                    <div class="text text-center">
+                      <p class="mb-5 pl-4 line">Anh ấy cũng tạo ra một thiết kế trực quan cho từng chức năng như một hướng dẫn cho lập trình viên giao diện người dùng, người sẽ tái tạo thiết kế này bằng mã lập trình.</p>
+                      <p class="name">Asish Satapathy</p>
+                      <span class="position">UI Designer</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="testimony-wrap p-4 pb-5">
+                    <div class="user-img mb-5" style="background-image: url(images/person_5.jpg)">
+                      <span class="quote d-flex align-items-center justify-content-center">
+                        <i class="icon-quote-left"></i>
+                      </span>
+                    </div>
+                    <div class="text text-center">
+                      <p class="mb-5 pl-4 line">Anh ta được thiết kế để đóng vai trò trung gian giữa khách hàng, bộ phận thiết kế và bộ phận phát triển. </p>
+                      <p class="name">Arya Kumar Sahoo</p>
+                      <span class="position">System Analyst</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="testimony-wrap p-4 pb-5">
+                    <div class="user-img mb-5" style="background-image: url(images/person_7.jpg)">
+                      <span class="quote d-flex align-items-center justify-content-center">
+                        <i class="icon-quote-left"></i>
+                      </span>
+                    </div>
+                    <div class="text text-center">
+                      <p class="mb-5 pl-4 line">Người này chịu trách nhiệm cấu hình cơ sở hạ tầng/phần cứng (máy chủ) mà trên đó các trang web đang hoạt động.</p>
+                      <p class="name">Anjali Mishra</p>
+                      <span class="position">System Architect</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="testimony-wrap p-4 pb-5">
+                    <div class="user-img mb-5" style="background-image: url(images/person_6.jpg)">
+                      <span class="quote d-flex align-items-center justify-content-center">
+                        <i class="icon-quote-left"></i>
+                      </span>
+                    </div>
+                    <div class="text text-center">
+                      <p class="mb-5 pl-4 line">Họ cung cấp nhiều ý tưởng khác nhau và giúp dự án tiến triển đúng tiến độ.</p>
+                      <p class="name">Ayushman Tripathy</p>
+                      <span class="position">Team Leader</span>
+                    </div>
+                  </div>
+                </div><div class="item">
+                  <div class="testimony-wrap p-4 pb-5">
+                    <div class="user-img mb-5" style="background-image: url(images/person_8.jpeg)">
+                      <span class="quote d-flex align-items-center justify-content-center">
+                        <i class="icon-quote-left"></i>
+                      </span>
+                    </div>
+                    <div class="text text-center">
+                      <p class="mb-5 pl-4 line">Để làm được điều này, lập trình viên viết mã CSS, HTML và JavaScript để hướng dẫn trình duyệt cách hiển thị trang web một cách trực quan.</p>
+                      <p class="name">M SaiKrishna Pattnaik</p>
+                      <span class="position">Web Developer</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="testimony-wrap p-4 pb-5">
+                    <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
+                      <span class="quote d-flex align-items-center justify-content-center">
+                        <i class="icon-quote-left"></i>
+                      </span>
+                    </div>
+                    <div class="text text-center">
+                      <p class="mb-5 pl-4 line">Phác thảo cấu trúc trang web dưới dạng bản vẽ thô (wireframe) để khách truy cập có thể hiểu rõ cách sử dụng và điều hướng trên trang web.</p>
+                      <p class="name">Siba Prasad Maharana</p>
+                      <span class="position">Graphic designer</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+                                                      <!-- ===== FOOTER ======-->
+    <footer class="ftco-footer ftco-section">
+      <div class="container">
+      	<div class="row">
+      		<div class="mouse">
+						<a href="#" class="mouse-icon">
+							<div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+						</a>
+					</div>
+      	</div>
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Vegefoods</h2>
+              <p>Xa thật xa, phía sau những ngọn núi chữ, cách xa các quốc gia Vokalia và Consonantia.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Hỗ trợ khách hàng</h2>
+              <div class="d-flex">
+	              <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+	              <li><a href="#" class="py-2 d-block">Thông tin vận chuyển </a></li>
+	                <li><a href="#" class="py-2 d-block">Chính sách đổi và trả hàng </a></li>
+	                <li><a href="#" class="py-2 d-block">Điều khoản và điều kiện</a></li>
+	                <li><a href="#" class="py-2 d-block">Chính sách bảo mật</a></li>
+	              </ul>
+	             
+	            </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Thông tin liên hệ</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	              <li><span class="icon icon-map-marker"></span><span class="text">129 TRẦN PHÚ - HÀ ĐÔNG - HÀ NỘI</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 8260-595-561</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">vegefoods@gmail.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+
+                                <!-- ===== DỮ LIỆU PRODUCT ======-->
+ <script>
+const products = {
+  
+  otchuong: {
+    name: "Ớt Chuông",
+    img: "images/product-1.jpg",
+    category: "Rau củ",
+    oldPrice: "120.000",
+    newPrice: "80.000"
+  },
+  dautay: {
+    name: "Dâu Tây",
+    img: "images/product-2.jpg",
+    category: "Trái cây",
+    newPrice: "399.000"
+  },
+  daucove: {
+    name: "Đậu Cove",
+    img: "images/product-3.jpg",
+    category: "Rau củ",
+    newPrice: "120.000"
+  },
+  bapcaitim: {
+    name: "Bắp Cải Tím",
+    img: "images/product-4.jpg",
+    category: "Rau củ",
+    newPrice: "180.000"
+  },
+  cachua: {
+    name: "Cà Chua",
+    img: "images/product-5.jpg",
+    category: "Rau củ",
+    oldPrice: "120000",
+    newPrice: "80.000"
+  },
+  suplo: {
+    name: "Súp Lơ",
+    img: "images/product-6.jpg",
+    category: "Rau củ",
+    newPrice: "120.000"
+  },
+  carot: {
+    name: "Cà Rốt",
+    img: "images/product-7.jpg",
+    category: "Rau củ",
+    newPrice: "140.000"
+  },
+  fruitjuice: {
+    name: "Nước Ép",
+    img: "images/product-8.jpg",
+    category: "Nước ép",
+    newPrice: "490.000"
+  },
+  haytay: {
+    name: "Hành Tây",
+    img: "images/product-9.jpg",
+    category: "Rau củ",
+    oldPrice: "120.000",
+    newPrice: "80.000"
+  },
+  tao: {
+    name: "Táo",
+    img: "images/product-10.jpg",
+    category: "Trái cây",
+    newPrice: "600.000"
+  },
+  toi: {
+    name: "Tỏi",
+    img: "images/product-11.jpg",
+    category: "Rau củ",
+    newPrice: "190.000"
+  },
+  ot: {
+    name: "Ớt Đỏ",
+    img: "images/product-12.jpg",
+    category: "Rau củ",
+    newPrice: "50.000"
+  },
+
+
+};
+
+// ===== FORMAT GIÁ =====
+    function formatPrice(price){
+    return price.toLocaleString("vi-VN")+"VND";
+}
+
+
+// ===== RENDER SẢN PHẨM =====
+       function renderProducts(list){
+       const container=document.getElementById("product-list");
+       container.innerHTML="";
+       list.forEach((p,id)=>{
+       container.innerHTML+=`
+       <div class="col-md-6 col-lg-4 product-item" data-category="${p.category}">
+      <div class="product">
+      <a href="Viewdetails.html?id=${Object.keys(products)[id]}" class="img-prod">
+      <img class="img-fluid" src="${p.img}">
+      <div class="overlay"></div></a>
+      <div class="text py-3 pb-4 px-3 text-center">
+      <h3><a href="Viewdetails.html?id=${Object.keys(products)[id]}">${p.name}</a></h3>
+      <p class="price"><span>${formatPrice(p.newPrice)}</span></p>
+      
+       <div class="bottom-area d-flex px-3">
+              <div class="m-auto d-flex">
+                <a href="cart.html" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                  <span><i class="ion-ios-cart"></i></span>
+                </a>
+                <a href="wishlist.html" class="heart d-flex justify-content-center align-items-center">
+                  <span><i class="ion-ios-heart"></i></span>
+                </a>
+              </div>
+            </div>
+      </div>
+      </div>
+      </div>
+    `;
+  });
+}
+let currentCategory = "Tất cả";
+
+// ===== CLICK DANH MỤC =====
+function filterProducts(category){
+currentCategory=category;
+applyFilters();
+
+}
+
+// ===== ÁP DỤNG LỌC =====
+function applyFilters(){
+let list=Object.values(products);
+const maxPrice = document.getElementById("priceRange").value;
+
+if(maxPrice > 0){
+list = list.filter(p => p.newPrice <= maxPrice);
+}
+
+// LỌC DANH MỤC
+if(currentCategory!=="Tất cả"){
+list=list.filter(p=>p.category===currentCategory);
+
+}
+
+
+// SẮP XẾP GIÁ
+const sort=document.getElementById("sortSelect")?.value;
+if(sort==="asc"){
+list.sort((a,b)=>a.newPrice-b.newPrice);
+}
+if(sort==="desc"){
+list.sort((a,b)=>b.newPrice-a.newPrice);
+}
+renderProducts(list);
+
+}
+
+// ĐẾM SỐ DANH MỤC 
+function countCategories(){
+const items=document.querySelectorAll(".category-list li");
+items.forEach(li=>{
+const category=li.getAttribute("data-category");
+const span=li.querySelector(".count");
+if(category==="Tất cả"){
+span.innerText="("+Object.keys(products).length+")";
+}else{
+const total=Object.values(products)
+.filter(p=>p.category===category).length;
+span.innerText="("+total+")";
+}
+});
+}
+
+// LOAD TRANG 
+renderProducts(Object.values(products));
+countCategories();
+</script>
+</script>
+  
+
+
+
+<!-- Thanh lọc giá -->
+ <script>
+     function updatePrice(){
+    let value = document.getElementById("priceRange").value;
+    document.getElementById("priceValue").innerText =
+    Number(value).toLocaleString("vi-VN") + " VND";
+     applyFilters(); // gọi lọc sản phẩm
+}
+  </script> 
+
+
+<!-- đổi active khi click vào DANH MỤC -->
+<script>
+const categories = document.querySelectorAll(".category-list li");
+categories.forEach(item=>{
+item.addEventListener("click",function(){
+categories.forEach(li=>li.classList.remove("active"));
+this.classList.add("active");
+
+});
+});
+</script>
+
+
+  </body>
+</html>
