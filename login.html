@@ -1,114 +1,142 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
-    <title>Vegefoods-Index</title>
+    <title>Đăng nhập - Vegefoods</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
-    
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/magnific-popup.css">
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-
-    
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   </head>
   <body class="goto-here">
-     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
     <div class="container d-flex align-items-center">
-    <!-- LOGO -->
-         <a class="navbar-brand" href="#">Vegefoods</a>
-       <!-- NÚT MENU MOBILE -->
+        <a class="navbar-brand" href="#">Vegefoods</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#ftco-nav" aria-controls="ftco-nav"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu </button>
-        <!-- NAVBAR -->
         <div class="collapse navbar-collapse" id="ftco-nav">
-         <!-- MENU Ở GIỮA -->
             <ul class="navbar-nav mx-auto navbar-center">
                 <li class="nav-item active"><a href="index.html" class="nav-link">TRANG CHỦ</a></li>
-          <li class="nav-item "><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
+                <li class="nav-item "><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">TIN TỨC</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li></ul>
+                <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li>
+            </ul>
 
-            <!-- ICON BÊN PHẢI -->
-            <ul class="navbar-nav navbar-icons">
-              <li class="nav-item cta cta-colored"><a href="search.html" class="nav-link"><img src="images/icon/search.svg" alt="Search"></a>
+            <ul class="navbar-nav  align-items-center">
+                
+                <li class="nav-item position-relative mr-3">
+                    <form action="shop.html" method="GET" class="d-flex align-items-center mt-2 mt-lg-0" style="background: #ffffff; border-radius: 20px; padding: 2px 15px; border: 1px solid #e9ecef;">
+                        <input type="text" id="searchInput" name="keyword" class="form-control" placeholder="Tìm kiếm..." autocomplete="off" style="border: none; height: 35px; font-size: 14px; width: 180px; background: transparent; box-shadow: none; padding-left: 0;">
+                        <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0;">
+                            <img src="images/icon/search.svg" alt="Search" style="width: 18px;">
+                        </button>
+                    </form>
+
+                   <div id="searchResults" class="search-dropdown shadow-lg" style="display: none; position: absolute; top: 120%; right: 0; width: 320px; background: white; border-radius: 8px; z-index: 9999; max-height: 340px; overflow-y: auto; border: 1px solid #f0f0f0;">
+                        </div>
                 </li>
-                <li class="nav-item cta cta-colored"><a href="wishlist.html" class="nav-link"><img src="images/icon/heart.svg" alt="Wishlist"></a>
-                </li>
-                <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a>
+                <li class="nav-item cta cta-colored">
+                    <a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a>
                 </li> 
-                <li class="nav-item cta cta-colored"><a href="login.html" class="nav-link"><img src="images/icon/account.svg" alt="Account"></a>
+                
+                <li class="nav-item cta cta-colored">
+                    <a href="login.html" class="nav-link" id="account-link">
+                        <img src="images/icon/account.svg" alt="Account">
+                        <span id="user-name-display" class="ml-2" style="color: #82ae46; font-weight: 600; display: none;"></span>
+                    </a>
                 </li> 
-              </ul>
+            </ul>
         </div>
     </div>
 </nav>
 
-
- <section class="ftco-section bg-light">
+<section class="ftco-section bg-light">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-5">
         <div class="bg-white p-5 shadow rounded">
 
-          <h3 class="mb-4 text-center">Đăng Nhập</h3>
+          <div id="login-container">
+              <h3 class="mb-4 text-center">Đăng Nhập</h3>
+              <form id="login-form">
+                <div class="form-group">
+                  <label>Email đăng nhập</label>
+                  <input type="email" id="login-email" class="form-control" placeholder="Nhập email" required>
+                </div>
+                <div class="form-group">
+                  <label>Mật khẩu</label>
+                  <div class="position-relative">
+                    <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" required>
+                    <span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password" style="position:absolute; top:50%; right:15px; transform:translateY(-50%); cursor:pointer;"></span>
+                  </div>
+                </div>
+                <div class="form-group d-flex justify-content-between align-items-center">
+                 <div class="checkbox-wrap">
+                      <input type="checkbox" id="rememberMe">
+                      <label for="rememberMe" style="margin-left: 5px;"> Nhớ mật khẩu</label>
+                  </div>
+                  <a href="javascript:void(0)" class="text-danger" onclick="toggleForgotPassword(true)">Quên mật khẩu?</a>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary py-3 px-5 btn-block">Đăng nhập</button>
+                </div>
+                <p class="text-center">
+                  Bạn chưa có tài khoản? <a href="register.html" class="text-primary">Đăng ký ngay!</a>
+                </p>
+              </form>
+          </div>
 
-          <form action="index.html" method="post">
-            
-            <div class="form-group">
-              <label>Email đăng nhập</label>
-              <input type="email" class="form-control" placeholder="Nhập email" required>
-            </div>
+          <div id="forgot-password-container" class="d-none">
+              <h3 class="mb-4 text-center">Khôi Phục Mật Khẩu</h3>
 
-            <div class="form-group">
-              <label>Mật khẩu</label>
-              <div class="position-relative">
-                <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" required>
-                <span toggle="#password" 
-                      class="fa fa-fw fa-eye field-icon toggle-password"
-                      style="position:absolute; top:50%; right:15px; transform:translateY(-50%); cursor:pointer;">
-                </span>
+              <div id="forgot-step-1">
+                  <p class="text-muted text-center" style="font-size: 14px;">Nhập email đăng ký để nhận mã PIN.</p>
+                  <div class="form-group">
+                      <input type="email" id="email-forgot" class="form-control" placeholder="Nhập Email của bạn">
+                  </div>
+                  <button type="button" id="btn-send-pin" class="btn btn-primary btn-block py-2" style="background-color: #82ae46; border: none;" onclick="sendPinCode()">Gửi Mã PIN</button>
               </div>
-            </div>
 
-            <div class="form-group d-flex justify-content-between align-items-center">
-              <div>
-                <input type="checkbox"> Nhớ mật khẩu
+              <div id="forgot-step-2" class="d-none">
+                  <p class="text-muted text-center" style="font-size: 14px;">Mã PIN gồm 6 số đã được gửi tới email của bạn.</p>
+                  <div class="form-group">
+                      <input type="text" id="pin-input" class="form-control text-center font-weight-bold" placeholder="------" maxlength="6" style="letter-spacing: 10px; font-size: 20px;">
+                  </div>
+                  <button type="button" class="btn btn-primary btn-block py-2 mb-2" style="background-color: #82ae46; border: none;" onclick="verifyPinCode()">Xác Thực</button>
               </div>
-              <a href="#" class="text-danger">Quên mật khẩu?</a>
-            </div>
 
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary py-3 px-5 btn-block">
-                Đăng nhập
-              </button>
-            </div>
+              <div id="forgot-step-3" class="d-none">
+                  <p class="text-muted text-center" style="font-size: 14px;">Nhập mật khẩu mới cho tài khoản của bạn.</p>
+                  <div class="form-group">
+                      <input type="password" id="new-password" class="form-control" placeholder="Mật khẩu mới (ít nhất 6 ký tự)">
+                  </div>
+                  <button type="button" id="btn-save-pass" class="btn btn-primary btn-block py-2 mb-2" style="background-color: #82ae46; border: none;" onclick="saveNewPassword()">Lưu Mật Khẩu Mới</button>
+              </div>
 
-            <p class="text-center">
-              Bạn chưa có tài khoản?
-              <a href="register.html" class="text-primary">Đăng ký ngay!</a>
-            </p>
-
-          </form>
+              <div class="text-center mt-3">
+                  <a href="javascript:void(0)" onclick="toggleForgotPassword(false)" class="text-secondary"><i class="fa fa-arrow-left"></i> Quay lại đăng nhập</a>
+              </div>
+          </div>
 
         </div>
       </div>
@@ -116,13 +144,7 @@
   </div>
 </section>
 
-    </footer>
-    
-  
-
-  <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -137,22 +159,13 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
+  <script src="js/auth-helper.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/account.js"></script>
 
-
-  <!-- SCRIPT HIỆN / ẨN MẬT KHẨU -->
-<script>
-$(document).ready(function() {
-  $(".toggle-password").click(function() {
-    var input = $("#password");
-    var type = input.attr("type") === "password" ? "text" : "password";
-    input.attr("type", type);
-    $(this).toggleClass("fa-eye fa-eye-slash");
-  });
-});
-</script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="./js/login.js"></script>
 
   </body>
 </html>

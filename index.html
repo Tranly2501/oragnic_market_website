@@ -30,36 +30,45 @@
   </head>
   <body class="goto-here">
 
- 
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
     <div class="container d-flex align-items-center">
-    <!-- LOGO -->
-         <a class="navbar-brand" href="#">Vegefoods</a>
-       <!-- NÚT MENU MOBILE -->
+        <a class="navbar-brand" href="#">Vegefoods</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#ftco-nav" aria-controls="ftco-nav"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu </button>
-        <!-- NAVBAR -->
         <div class="collapse navbar-collapse" id="ftco-nav">
-         <!-- MENU Ở GIỮA -->
             <ul class="navbar-nav mx-auto navbar-center">
                 <li class="nav-item active"><a href="index.html" class="nav-link">TRANG CHỦ</a></li>
-          <li class="nav-item "><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
+                <li class="nav-item "><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">TIN TỨC</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li></ul>
+                <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li>
+            </ul>
 
-            <!-- ICON BÊN PHẢI -->
-            <ul class="navbar-nav navbar-icons">
-              <li class="nav-item cta cta-colored"><a href="search.html" class="nav-link"><img src="images/icon/search.svg" alt="Search"></a>
+            <ul class="navbar-nav  align-items-center">
+                
+                <li class="nav-item position-relative mr-3">
+                    <form action="shop.html" method="GET" class="d-flex align-items-center mt-2 mt-lg-0" style="background: #ffffff; border-radius: 20px; padding: 2px 15px; border: 1px solid #e9ecef;">
+                        <input type="text" id="searchInput" name="keyword" class="form-control" placeholder="Tìm kiếm..." autocomplete="off" style="border: none; height: 35px; font-size: 14px; width: 180px; background: transparent; box-shadow: none; padding-left: 0;">
+                        <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0;">
+                            <img src="images/icon/search.svg" alt="Search" style="width: 18px;">
+                        </button>
+                    </form>
+
+                   <div id="searchResults" class="search-dropdown shadow-lg" style="display: none; position: absolute; top: 120%; right: 0; width: 320px; background: white; border-radius: 8px; z-index: 9999; max-height: 340px; overflow-y: auto; border: 1px solid #f0f0f0;">
+                        </div>
                 </li>
-                <li class="nav-item cta cta-colored"><a href="wishlist.html" class="nav-link"><img src="images/icon/heart.svg" alt="Wishlist"></a>
-                </li>
-                <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a>
+                <li class="nav-item cta cta-colored">
+                    <a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a>
                 </li> 
-                <li class="nav-item cta cta-colored"><a href="login.html" class="nav-link"><img src="images/icon/account.svg" alt="Account"></a>
+                
+                <li class="nav-item cta cta-colored">
+                    <a href="login.html" class="nav-link" id="account-link">
+                        <img src="images/icon/account.svg" alt="Account">
+                        <span id="user-name-display" class="ml-2" style="color: #82ae46; font-weight: 600; display: none;"></span>
+                    </a>
                 </li> 
-              </ul>
+            </ul>
         </div>
     </div>
 </nav>
@@ -152,50 +161,55 @@
 			</div>
 		</section>
 
-		<section class="ftco-section ftco-category ftco-no-pt">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8">
-						<div class="row">
-							<div class="col-md-6 order-md-last align-items-stretch d-flex">
-								<div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(images/category.jpg);">
-									<div class="text text-center">
-										<h2>Vegetables</h2>
-										<p>Bảo vệ sức khỏe cho mọi gia đình </p>
-										<p><a href="shop.html" class="btn btn-primary">Mua ngay</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(images/category-1.jpg);">
-									<div class="text px-3 py-1">
-										<h2 class="mb-0"><a href="Vegetables.html">Rau Củ</a></h2>
-									</div>
-								</div>
-								<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(images/category-2.jpg);">
-									<div class="text px-3 py-1">
-										<h2 class="mb-0"><a href="Fruits.html">Trái Cây </a></h2>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+<section class="ftco-section ftco-category ftco-no-pt">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-6 order-md-last align-items-stretch d-flex">
+                        <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(images/category.jpg);">
+                            <div class="text text-center">
+                                <h2>Vegetables</h2>
+                                <p>Bảo vệ sức khỏe cho mọi gia đình</p>
+                                <p><a href="shop.html" class="btn btn-primary">Mua ngay</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                      <a href="shop.html?category=1">
+                        <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(images/category-1.jpg);">
+                            <div class="text px-3 py-1">
+                                <h2 class="mb-0" style = "color:#ffff"> Rau Củ</h2>
+                            </div>
+                        </div>
+                      </a>
+                        
+                        <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(images/category-2.jpg);">
+                            <div class="text px-3 py-1">
+                                <h2 class="mb-0"><a href="shop.html?category=2">Trái Cây</a></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-					<div class="col-md-4">
-						<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(images/category-3.jpg);">
-							<div class="text px-3 py-1">
-								<h2 class="mb-0"><a href="Juices.html">Nước Ép</a></h2>
-							</div>		
-						</div>
-						<div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(images/category-4.jpg);">
-							<div class="text px-3 py-1">
-								<h2 class="mb-0"><a href="Dried.html">Hạt</a></h2>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+            <div class="col-md-4">
+                <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(images/category-3.jpg);">
+                    <div class="text px-3 py-1">
+                        <h2 class="mb-0"><a href="shop.html?category=4">Nước Ép</a></h2>
+                    </div>    
+                </div>
+                
+                <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(images/category-4.jpg);">
+                    <div class="text px-3 py-1">
+                        <h2 class="mb-0"><a href="shop.html?category=3">Hạt</a></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <hr>
 	<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
       <div class="container py-4">
@@ -290,8 +304,9 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
+
+  <!-- 🔐 Auth Helper - Clear old tokens & Monitor storage -->
+  <script src="js/auth-helper.js"></script>
   <script src="js/main.js"></script>
     
   </body>

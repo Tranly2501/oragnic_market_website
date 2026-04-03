@@ -1,10 +1,12 @@
 /* CHON DANH MỤC SẢN PHẨM */
 
-.col-lg-3 {
+.col-lg-2 {
   position: sticky;
-  top: 20px;
+  top: 14px;
   height: fit-content;
+  font-size:12px;
 }
+
 .category-list{
 list-style: none;
 padding: 0;
@@ -14,8 +16,8 @@ margin: 0;
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 12px 15px;
-margin-bottom: 10px;
+padding: 8px 10px;
+margin-bottom: 8px;
 cursor: pointer;
 border-radius: 6px;
 transition: all 0.3s;
@@ -32,7 +34,7 @@ color: #82ae46;
 }
 .category-list .count{
 color: #666;
-font-size: 14px;
+ font-size:12px;
 }
 .category-list li:hover{
 background: #82ae46;
@@ -71,7 +73,7 @@ color: white;
 }
 
 .price-filter h4{
-  font-weight:bold;
+  font-weight:300;
   margin-bottom:10px;
 }
 
@@ -82,6 +84,8 @@ color: white;
   background:#ddd;
   border-radius:10px;
   outline:none;
+  font-size:12px;
+  
 }
 
 #priceRange::-webkit-slider-thumb{
@@ -103,33 +107,12 @@ color: white;
 
 #priceValue{
   margin-top:10px;
-  font-size:16px;
+  font-size:13px;
 }
 
 
 /* BUTTON ĐƠN VỊ */
-.unit{
-display:flex;
-gap:8px;
-}
 
-.unit button{
-
-padding:6px 14px;
-border:1px solid #ccc;
-background:white;
-cursor:pointer;
-transition:0.3s;
-}
-.unit button:hover{
-border-color:#82ae46;
-}
-.unit button.active{
-background:#82ae46;
-color:white;
-border-color:#82ae46;
-
-}
 
 
 
@@ -285,4 +268,23 @@ color:white;
 
 .qty{
 width:40px !important;
+}
+
+/* Định nghĩa hiệu ứng trượt từ trái vào */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Class tùy chỉnh cho Toast */ 
+.custom-toast-slide {
+  animation: slideLeft 0.25s cubic-bezier(1, 1.0, 0.73, 1) forwards !important;
+  border-radius: 4px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
 }

@@ -59,9 +59,6 @@
 	};
 	loader();
 
-	// Scrollax
-   $.Scrollax();
-
 	var carousel = function() {
 		$('.home-slider').owlCarousel({
 	    loop:true,
@@ -300,7 +297,7 @@
 
 		$('.mouse-icon').on('click', function(event){
 			
-			event.preventDefault();
+			event.preventDefault(); 
 
 			$('html,body').animate({
 				scrollTop: $('.goto-here').offset().top
@@ -344,124 +341,158 @@ setInterval(function() { makeTimer(); }, 1000);
 
 })(jQuery);
 
+/// Lưu trữ thông tin và hiện thị tkk 
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Kiểm tra trạng thái đăng nhập từ LocalStorage
+    const userJson = localStorage.getItem('currentUser');
+    
+    const userNameDisplay = document.getElementById('user-name-display');
+    const accountLink = document.getElementById('account-link');
 
+    if (userJson) {
+        // ĐÃ ĐĂNG NHẬP
+        const userData = JSON.parse(userJson);
+        
+        // Lấy tên hiển thị
+        const displayName =  userData.user.username;
 
-
-// ---- Chức namng xóa  và tăng giảm số lượng sản phẩm trong giỏ hàng và yêu thích ----
-
-document.querySelectorAll(".plus").forEach(btn=>{
-btn.onclick=function(){
-
-let row=this.closest("tr");
-let input=row.querySelector(".qty-input");
-let price=row.querySelector(".price").dataset.price;
-let total=row.querySelector(".total");
-
-input.value=parseInt(input.value)+1;
-
-let sum=price*input.value;
-
-total.innerText=sum.toLocaleString('vi-VN')+"đ";
-
-}
-})
-
-document.querySelectorAll(".minus").forEach(btn=>{
-btn.onclick=function(){
-
-let row=this.closest("tr");
-let input=row.querySelector(".qty-input");
-let price=row.querySelector(".price").dataset.price;
-let total=row.querySelector(".total");
-
-if(input.value>1){
-input.value=parseInt(input.value)-1;
-}
-
-let sum=price*input.value;
-
-total.innerText=sum.toLocaleString('vi-VN')+"đ";
-
-}
-})
-
-document.querySelectorAll(".qty-box").forEach(box=>{
-
-let minus = box.children[0]
-let input = box.children[1]
-let plus = box.children[2]
-
-plus.onclick = ()=>{
-input.value = parseInt(input.value) + 1
-}
-
-minus.onclick = ()=>{
-if(input.value > 1){
-input.value = parseInt(input.value) - 1
-}
-}
-
-})
-$(document).ready(function(){
-
-function updateTotal(row){
-
-var price = parseFloat(row.find('.product-price').text());
-var quantity = parseInt(row.find('.input-number').val());
-
-var total = price * quantity;
-
-row.find('.total').text(total + "đ");
-
-}
-
-$('.quantity-right-plus').click(function(e){
-
-e.preventDefault();
-
-var row = $(this).closest('tr');
-var input = row.find('.input-number');
-
-var value = parseInt(input.val());
-input.val(value + 1);
-
-updateTotal(row);
-
-});
-
-$('.quantity-left-minus').click(function(e){
-
-e.preventDefault();
-
-var row = $(this).closest('tr');
-var input = row.find('.input-number');
-
-var value = parseInt(input.val());
-
-if(value > 1){
-input.val(value - 1);
-}
-
-updateTotal(row);
-
-});
-
-});
-
-
-
-document.querySelectorAll(".remove-btn").forEach(btn => {
-    btn.onclick = function(e){
-        e.preventDefault();
-
-        let row = this.closest("tr");
-
-        row.style.transition = "0.3s";
-        row.style.opacity = "0";
-
-        setTimeout(()=>{
-            row.remove();
-        },300);
+        // Hiện tên cạnh icon
+        if (userNameDisplay) {
+            userNameDisplay.innerText = displayName;
+            userNameDisplay.style.display = "inline-block";
+			userNameDisplay.style.fontSize = "8px";
+        }
+        if (accountLink) {
+            accountLink.href = "profile.html";
+        }
+    } else {
+        // CHƯA ĐĂNG NHẬP
+        if (userNameDisplay) userNameDisplay.style.display = "hidden";
+        if (accountLink) accountLink.href = "login.html";
     }
 });
 
+
+// Hàm định dạng tiền tệ
+function formatPrice(price) {
+    let numPrice = Number(price);
+    if(isNaN(numPrice)) return "0 VNĐ";
+    return numPrice.toLocaleString("vi-VN") + " VNĐ";
+}
+
+
+
+// HÀM FORMAT GIÁ VÀ RENDER GIAO DIỆN
+// ==========================================
+function formatPrice(price) {
+    let numPrice = Number(price);
+    if(isNaN(numPrice)) return "0 VNĐ";
+    return numPrice.toLocaleString("vi-VN") + " VNĐ";
+}
+
+// ==========================================
+// HÀM XỬ LÝ LẤY ĐƯỜNG DẪN ẢNH (TỪ BACKEND)
+// ==========================================
+function getImageUrl(product) {
+    // KHAI BÁO ĐỊA CHỈ BACKEND CỦA BẠN Ở ĐÂY
+    // (Nếu backend chạy cổng khác, hãy sửa lại cho đúng)
+    const BACKEND_URL = 'http://127.0.0.1:8080'; 
+
+    let rawImg = product.image_url || product.ImageURL || product.img;
+    
+    if (!rawImg) return "images/product-1.jpg"; // Ảnh mặc định nếu ko có data
+
+    let extractedPath = "";
+
+    if (typeof rawImg === 'string' && rawImg.trim().startsWith('{')) {
+        try { rawImg = JSON.parse(rawImg); } 
+        catch (e) { console.error("Lỗi đọc hình ảnh:", e); }
+    }
+
+    if (typeof rawImg === 'object' && rawImg !== null) {
+        const keys = Object.keys(rawImg);
+        if (keys.length > 0) {
+            extractedPath = rawImg[keys[0]]; 
+        }
+    } else if (typeof rawImg === 'string') {
+        extractedPath = rawImg;
+    }
+
+    if (!extractedPath) return "images/product-1.jpg";
+
+    // Xử lý tự động thêm đuôi .jpg nếu thiếu
+    if (!extractedPath.match(/\.(jpg|jpeg|png|webp|gif)$/i)) {
+        extractedPath = extractedPath + ".jpg"; 
+    }
+
+    // --- ĐIỂM MẤU CHỐT ---
+    // Kiểm tra xem đường dẫn đã có http:// chưa. Nếu chưa thì ghép địa chỉ backend vào
+    if (!extractedPath.startsWith('http')) {
+        // Đảm bảo không bị dư hoặc thiếu dấu gạch chéo '/'
+        if(extractedPath.startsWith('/')) {
+            extractedPath = BACKEND_URL + extractedPath;
+        } else {
+            extractedPath = BACKEND_URL + '/' + extractedPath;
+        }
+    }
+
+    return extractedPath;
+}
+
+// TÌM KIẾM SẢN PHẨM 
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("searchInput");
+    const searchResults = document.getElementById("searchResults");
+    let timeout = null;
+
+    if (searchInput) {
+        // Bắt sự kiện mỗi khi người dùng gõ phím
+        searchInput.addEventListener("input", function (e) {
+            clearTimeout(timeout); // Hủy bộ đếm cũ
+            const keyword = e.target.value.trim();
+
+            // Nếu xóa hết chữ thì ẩn dropdown đi
+            if (keyword.length === 0) {
+                searchResults.style.display = "none";
+                return;
+            }
+
+            // Thiết lập bộ đếm mới (Đợi 400ms sau khi ngừng gõ mới gọi API)
+            timeout = setTimeout(async () => {
+                try {
+                    // Gọi API Tìm kiếm 
+                    const response = await fetch(`http://127.0.0.1:8080/search-products?keyword=${encodeURIComponent(keyword)}`);
+                    const result = await response.json();
+
+                  
+                    if (result.errCode === 0 && result.data.length > 0) {
+                        let html = "";
+                        result.data.forEach(p => {
+                           
+                            let price = p.discount_price ? p.discount_price : p.price;
+                            
+                            html += `
+                            <a href="Viewdetails.html?id=${p.id}" class="d-flex align-items-center p-2 border-bottom text-dark" style="text-decoration: none; transition: background 0.2s;">
+                                <img src="${getImageUrl(p)}" alt="${p.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; margin-right: 15px;">
+                                <div>
+                                    <h6 class="mb-0" style="font-weight: 600; font-size: 14px;">${p.name}</h6>
+                                    <small class="text-success" style="font-weight: 500;">${formatPrice(price)}</small>
+                                </div>
+                            </a>`;
+                        });
+                        searchResults.innerHTML = html;
+                        searchResults.style.display = "block"; // Hiện Dropdown
+                    } else {
+                        searchResults.innerHTML = `<div class="p-3 text-center text-muted">Không tìm thấy "${keyword}"</div>`;
+                        searchResults.style.display = "block";
+                    }
+                } catch (error) {
+                    console.error("Lỗi tìm kiếm:", error);
+                }
+            }, 400); 
+        });
+
+        // Ẩn dropdown khi click ra ngoài màn hình
+
+    }
+});

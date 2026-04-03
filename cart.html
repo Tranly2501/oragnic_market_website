@@ -27,40 +27,55 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>d
   </head>
   <body class="goto-here">
-	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+    
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
     <div class="container d-flex align-items-center">
-    <!-- LOGO -->
-         <a class="navbar-brand" href="#">Vegefoods</a>
-       <!-- NÚT MENU MOBILE -->
+        <a class="navbar-brand" href="#">Vegefoods</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#ftco-nav" aria-controls="ftco-nav"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu </button>
-        <!-- NAVBAR -->
         <div class="collapse navbar-collapse" id="ftco-nav">
-         <!-- MENU Ở GIỮA -->
             <ul class="navbar-nav mx-auto navbar-center">
                 <li class="nav-item active"><a href="index.html" class="nav-link">TRANG CHỦ</a></li>
-          <li class="nav-item "><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
+                <li class="nav-item "><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">TIN TỨC</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li></ul>
+                <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li>
+            </ul>
 
-            <!-- ICON BÊN PHẢI -->
-           <ul class="navbar-nav navbar-icons">
-              <li class="nav-item cta cta-colored"><a href="search.html" class="nav-link"><img src="images/icon/search.svg" alt="Search"></a>
+            <ul class="navbar-nav  align-items-center">
+                
+                <li class="nav-item position-relative mr-3">
+                    <form action="shop.html" method="GET" class="d-flex align-items-center mt-2 mt-lg-0" style="background: #ffffff; border-radius: 20px; padding: 2px 15px; border: 1px solid #e9ecef;">
+                        <input type="text" id="searchInput" name="keyword" class="form-control" placeholder="Tìm kiếm..." autocomplete="off" style="border: none; height: 35px; font-size: 14px; width: 180px; background: transparent; box-shadow: none; padding-left: 0;">
+                        <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0;">
+                            <img src="images/icon/search.svg" alt="Search" style="width: 18px;">
+                        </button>
+                    </form>
+
+                   <div id="searchResults" class="search-dropdown shadow-lg" style="display: none; position: absolute; top: 120%; right: 0; width: 320px; background: white; border-radius: 8px; z-index: 9999; max-height: 340px; overflow-y: auto; border: 1px solid #f0f0f0;">
+                        </div>
                 </li>
-                <li class="nav-item cta cta-colored"><a href="wishlist.html" class="nav-link"><img src="images/icon/heart.svg" alt="Wishlist"></a>
-                </li>
-                <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a>
+                <li class="nav-item cta cta-colored">
+                    <a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a>
                 </li> 
-                <li class="nav-item cta cta-colored"><a href="login.html" class="nav-link"><img src="images/icon/account.svg" alt="Account"></a>
+                
+                <li class="nav-item cta cta-colored">
+                    <a href="login.html" class="nav-link" id="account-link">
+                        <img src="images/icon/account.svg" alt="Account">
+                        <span id="user-name-display" class="ml-2" style="color: #82ae46; font-weight: 600; display: none;"></span>
+                    </a>
                 </li> 
-              </ul>
+            </ul>
         </div>
     </div>
 </nav>
+
     <!-- END nav -->
 
     <div class="hero-wrap hero-bread" style="background-image: url('images/category-4.jpg');">
@@ -88,175 +103,68 @@
 						        <th>Giá</th>
 						        <th>Số Lượng</th>
 						        <th>Tổng</th>
+                    <th>
+                        <input type="checkbox" id="check-all" checked onchange="toggleSelectAll()" style="transform: scale(1.5); cursor: pointer;">
+                    </th>
 						      </tr>
 						    </thead>
-						    <tbody>
-						      <tr class="text-center">
+						    <tbody id="cart-body"></tbody>
 
-<td class="image-prod">
-<div class="img" style="background-image:url(images/product-3.jpg);"></div>
-</td>
-
-<td class="product-name">
-<h3>Đậu Cove</h3>
-<p>Xa thật xa, phía sau những ngọn núi chữ, cách xa các quốc gia.</p>
-</td>
-
-<td class="price product-price">15000đ</td>
-
-<td class="quantity">
-  <div class="input-group quantity-box">
-
-    <div class="input-group-prepend">
-      <button class="btn btn-outline-secondary quantity-left-minus" type="button">-</button>
-    </div>
-
-    <input type="text" class="form-control text-center input-number" value="1" min="1" max="100">
-
-    <div class="input-group-append">
-      <button class="btn btn-outline-secondary quantity-right-plus" type="button">+</button>
-    </div>
-
-  </div>
-</td>
-
-<td class="total">15000đ</td>
-<td class="product-remove">
-<a href="#" class="remove-btn"><span class="ion-ios-close"></span></a>
-</td>
-</tr><!-- END TR-->
-
-							<tr class="text-center">
-
-<td class="image-prod">
-<div class="img" style="background-image:url(images/product-5.jpg);"></div>
-</td>
-
-<td class="product-name">
-<h3>Cà Chua</h3>
-<p>Xa thật xa, phía sau những ngọn núi chữ, cách xa các quốc gia.</p>
-</td>
-
-<td class="price product-price">20000đ</td>
-<td class="quantity">
-  <div class="input-group quantity-box">
-
-    <div class="input-group-prepend">
-      <button class="btn btn-outline-secondary quantity-left-minus" type="button">-</button>
-    </div>
-
-    <input type="text" class="form-control text-center input-number" value="1" min="1" max="100">
-
-    <div class="input-group-append">
-      <button class="btn btn-outline-secondary quantity-right-plus" type="button">+</button>
-    </div>
-
-  </div>
-</td>
-<td class="total">20000đ</td>
-<td class="product-remove">
-<a href="#" class="remove-btn"><span class="ion-ios-close"></span></a>
-</td>
-</tr><!-- END TR-->
-
-						    <tr class="text-center">
-
-<td class="image-prod">
-<div class="img" style="background-image:url(images/product-4.jpg);"></div>
-</td>
-
-<td class="product-name">
-<h3>Bắp Cải Tím</h3>
-<p>Xa thật xa, phía sau những ngọn núi chữ, cách xa các quốc gia.</p>
-</td>
-
-<td class="price product-price">165000đ</td>
-<td class="quantity">
-  <div class="input-group quantity-box">
-
-    <div class="input-group-prepend">
-      <button class="btn btn-outline-secondary quantity-left-minus" type="button">-</button>
-    </div>
-
-    <input type="text" class="form-control text-center input-number" value="1" min="1" max="100">
-
-    <div class="input-group-append">
-      <button class="btn btn-outline-secondary quantity-right-plus" type="button">+</button>
-    </div>
-
-  </div>
-</td>
-
-<td class="total">165000đ</td>
-<td class="product-remove">
-<a href="#" class="remove-btn"><span class="ion-ios-close"></span></a>
-</td>
-</tr>
-
-						      <!-- END TR-->
-						    </tbody>
+                  
 						  </table>
 					  </div>
     			</div>
     		</div>
-    		<div class="row justify-content-end">
-    			<div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-    				<div class="cart-total mb-3">
-    					<h3>Mã Giảm Giá</h3>
-    					<p>Nhập mã giảm giá của bạn nếu có.</p>
-  						<form action="#" class="info">
-	              <div class="form-group">
-	              	<label for="">Mã giảm giá</label>
-	                <input type="text" class="form-control text-left px-3" placeholder="">
-	              </div>
-	            </form>
-    				</div>
-    				<p><a href="checkout.html" class="btn btn-primary py-3 px-4">Áp Dụng Mã Giá</a></p>
-    			</div>
-    			<div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-    				<div class="cart-total mb-3">
-    					<h3>Ước tính phí vận chuyển và thuế</h3>
-    					<p>Nhập địa điểm nhận hàng để nhận báo giá vận chuyển.</p>
-  						<form action="#" class="info">
-	              <div class="form-group">
-	              	<label for="">Quốc Gia</label>
-	                <input type="text" class="form-control text-left px-3" placeholder="">
-	              </div>
-	              <div class="form-group">
-	              	<label for="country">Tiểu bang/Tỉnh</label>
-	                <input type="text" class="form-control text-left px-3" placeholder="">
-	              </div>
-	              <div class="form-group">
-	              	<label for="country">Mã bưu chính</label>
-	                <input type="text" class="form-control text-left px-3" placeholder="">
-	              </div>
-	            </form>
-    				</div>
-    				<p><a href="checkout.html" class="btn btn-primary py-3 px-4">Ước Lượng</a></p>
-    			</div>
-    			<div class="col-lg-4 mt-5 cart-wrap ftco-animate">
-    				<div class="cart-total mb-3">
-    					<h3>Tổng cộng giỏ hàng</h3>
-    					<p class="d-flex">
-    						<span>Tổng Phụ</span>
-    						<span>20.60</span>
-    					</p>
-    					<p class="d-flex">
-    						<span>Vận Chuyển</span>
-    						<span>0.00</span>
-    					</p>
-    					<p class="d-flex">
-    						<span>Giảm Giá</span>
-    						<span>3.00</span>
-    					</p>
-    					<hr>
-    					<p class="d-flex total-price">
-    						<span>Tổng</span>
-    						<span>17.60</span>
-    					</p>
-    				</div>
-    				<p><a href="checkout.html" class="btn btn-primary py-3 px-4">Tiến Hành Thanh Toán</a></p>
-    			</div>
+    	<div class="row justify-content-end">
+        <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+            <div class="cart-total mb-3">
+                <h3>Mã Giảm Giá</h3>
+                <p>Nhập mã giảm giá của bạn nếu có.</p>
+                <form action="#" class="info" onsubmit="event.preventDefault();"> <div class="form-group">
+                        <label for="discount-code-input">Mã giảm giá</label>
+                        <input type="text" class="form-control text-left px-3" id="discount-code-input" placeholder="Ví dụ: FREESHIP">
+                    </div>
+                </form>
+            </div>
+            <p><button onclick="applyDiscountCode()" class="btn btn-primary py-3 px-4 w-100" style="cursor: pointer; ">Áp Dụng Mã Giá</button></p>
+        </div>
+
+        <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+            <div class="cart-total mb-3">
+                <h3>Ước tính phí vận chuyển </h3>
+                <p>Nhập địa điểm nhận hàng để nhận báo giá vận chuyển.</p>
+                <form action="#" class="info" onsubmit="event.preventDefault(); ">
+                    <div class="form-group" ><label>Tỉnh/Thành phố</label><input type="text" class="form-control text-left px-3 "  id="ship-city"></div>
+                    <div class="form-group"><label>Địa chỉ chi tiết </label><input type="text" class="form-control text-left px-3" id="ship-address"></div>
+  
+                </form>
+            </div>
+            <p><button onclick="estimateShipping()" class="btn btn-primary py-3 px-4 w-100" style="cursor: pointer;" >Ước Lượng</button></p>
+        </div>
+
+        <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+            <div class="cart-total mb-3">
+                <h3>Đơn Hàng</h3>
+                <p class="d-flex">
+                    <span>Tổng Phụ</span>
+                    <span id="cart-subtotal">0 VNĐ</span>
+                </p>
+                <p class="d-flex">
+                    <span>Vận Chuyển</span>
+                    <span id="cart-shipping">0 VNĐ</span>
+                </p>
+                <p class="d-flex">
+                    <span>Giảm Giá</span>
+                    <span id="cart-discount">0 VNĐ</span> 
+                </p>
+                <hr>
+                <p class="d-flex total-price">
+                    <span>Tổng</span>
+                    <span id="cart-total">0 VNĐ</span>
+                </p>
+            </div>
+            <p><button class="btn btn-primary py-3 px-4 w-100" onclick="goToCheckout()" style="cursor: pointer;">Tiến Hành Thanh Toán</button></p>
+        </div>
     		</div>
 			</div>
 		</section>
@@ -353,76 +261,9 @@
   <script src="js/aos.js"></script>
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-
-  <script>
-		$(document).ready(function(){
-
-		var quantitiy=0;
-		   $('.quantity-right-plus').click(function(e){
-		        
-		        // Stop acting like a button
-		        e.preventDefault();
-		        // Get the field name
-		        var quantity = parseInt($('#quantity').val());
-		        
-		        // If is not undefined
-		            
-		            $('#quantity').val(quantity + 1);
-
-		          
-		            // Increment
-		        
-		    });
-
-		     $('.quantity-left-minus').click(function(e){
-		        // Stop acting like a button
-		        e.preventDefault();
-		        // Get the field name
-		        var quantity = parseInt($('#quantity').val());
-		        
-		        // If is not undefined
-		      
-		            // Increment
-		            if(quantity>0){
-		            $('#quantity').val(quantity - 1);
-		            }
-		    });
-		    
-		});
-	</script>
-    
-
-
-<script>
-  function addToCart(id){
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-let product = products[id];
-
-let existing = cart.find(item => item.id === id);
-
-if(existing){
-existing.qty += 1;
-}else{
-cart.push({
-id: id,
-name: product.name,
-price: product.newPrice,
-img: product.img,
-qty: 1
-});
-}
-
-localStorage.setItem("cart", JSON.stringify(cart));
-
-alert("Đã thêm vào giỏ hàng!");
-}
-</script>
-  
+  <script src="js/scrollax.min.js"></script>  
+  <script src="js/auth-helper.js"></script> 
+   <script src="js/main.js"></script>
+ <script src="js/cart.js"></script>
   </body>
 </html>

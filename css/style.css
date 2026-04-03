@@ -94,7 +94,7 @@ label {
 }
 /* ===== Làm to và đậm menu giữa ===== */
 .navbar-nav .nav-link {
-  font-size: 12px !important;   /* tăng size */
+  font-size: 10px !important;   /* tăng size */
   font-weight: 500 !important;  /* đậm */
   letter-spacing: 1px;          /* giãn chữ cho sang */
 }
@@ -427,7 +427,8 @@ mark,
 
 .img-fluid {
   max-width: 100%;
-  height: auto; }
+height: auto;
+}
 
 .img-thumbnail {
   padding: 0.25rem;
@@ -530,8 +531,8 @@ pre {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px; }
+  padding-right: 10px;
+  padding-left: 10px; }
 
 .col {
   -ms-flex-preferred-size: 0;
@@ -3453,8 +3454,19 @@ input[type="button"].btn-block {
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #007bff; }
+  color: #000000;
+ }
+
+ .nav-pills .nav-link.active, 
+.nav-pills .show > .nav-link {
+   color: #82ae46; /* Màu xám đen */
+    font-weight: 600; /* In đậm một chút cho đẹp */
+}
+
+/* Tùy chọn: Đổi màu chữ của thẻ KHI CHƯA ĐƯỢC CHỌN */
+.nav-pills .nav-link {
+    color:#000
+}
 
 .nav-fill .nav-item {
   -webkit-box-flex: 1;
@@ -8037,8 +8049,8 @@ a.text-dark:hover, a.text-dark:focus {
 body {
   font-family: 'Open Sans', sans-serif;
   background: #fff;
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: 13px;
+  line-height: 1.5;
   font-weight: 400;
   color: gray; }
   body.menu-show {
@@ -8070,9 +8082,9 @@ h1, h2, h3, h4, h5,
   
   /* Thu nhỏ input */
 .form-control {
-  height: 38px !important;
+  height: 38px;
   padding: 6px 14px !important;
-  font-size: 14px !important;
+  font-size: 14px ;
   border-radius: 1px !important;
 }
 
@@ -8120,10 +8132,10 @@ h1, h2, h3, h4, h5,
       padding-bottom: 10px; } }
   .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
     font-size: 11px;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    padding-left: 20px;
-    padding-right: 20px;
+   padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-left: 25px;
+    padding-right: 25px;
     font-weight: 400;
     color: #000000;
     text-transform: uppercase;
@@ -8785,7 +8797,7 @@ h1, h2, h3, h4, h5,
     position: relative;
     width: 100%; }
     .product .text h3 {
-      font-size: 14px;
+      font-size: 13px;
       margin-bottom: 5px;
       font-weight: 300;
       text-transform: uppercase;
@@ -8987,7 +8999,7 @@ h1, h2, h3, h4, h5,
   .table tbody tr td {
     text-align: center !important;
     vertical-align: middle;
-    padding: 40px 10px;
+    padding: 20px 10px;
     border: 1px solid transparent !important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important; }
     .table tbody tr td.product-remove a {
@@ -9205,10 +9217,10 @@ h1, h2, h3, h4, h5,
         display: none; } }
 
 .form-control {
-  height: 52px !important;
+  height: 52px ;
   background: #fff !important;
   color: #000000 !important;
-  font-size: 18px;
+  font-size: 12px;
   border-radius: 0px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important; }
@@ -9233,10 +9245,10 @@ textarea.form-control {
   display: block; }
 
 .about-author .desc h3 {
-  font-size: 24px; }
+  font-size: 20px; }
 
 .ftco-section {
-  padding: 6em 0;
+  padding: 2em 0;
   position: relative; }
 
 .ftco-no-pt {

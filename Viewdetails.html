@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
   <head>
-    <title>Vegefoods-Sản Phẩm Chi Tiết</title>
+    <title>Vegefoods - Sản Phẩm Chi Tiết</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -17,301 +17,235 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
 
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/ionicons.min.css">
-
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-
     
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/myStyle.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
   </head>
   <body class="goto-here">
-	
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+  
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
     <div class="container d-flex align-items-center">
-    <!-- LOGO -->
-         <a class="navbar-brand" href="#">Vegefoods</a>
-       <!-- NÚT MENU MOBILE -->
+        <a class="navbar-brand" href="#">Vegefoods</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#ftco-nav" aria-controls="ftco-nav"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu </button>
-        <!-- NAVBAR -->
         <div class="collapse navbar-collapse" id="ftco-nav">
-         <!-- MENU Ở GIỮA -->
             <ul class="navbar-nav mx-auto navbar-center">
                 <li class="nav-item active"><a href="index.html" class="nav-link">TRANG CHỦ</a></li>
-          <li class="nav-item "><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
+                <li class="nav-item "><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">TIN TỨC</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li></ul>
+                <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li>
+            </ul>
 
-            <!-- ICON BÊN PHẢI -->
-            <ul class="navbar-nav navbar-icons">
-              <li class="nav-item cta cta-colored"><a href="search.html" class="nav-link"><img src="images/icon/search.svg" alt="Search"></a>
+            <ul class="navbar-nav  align-items-center">
+                
+                <li class="nav-item position-relative mr-3">
+                    <form action="shop.html" method="GET" class="d-flex align-items-center mt-2 mt-lg-0" style="background: #ffffff; border-radius: 20px; padding: 2px 15px; border: 1px solid #e9ecef;">
+                        <input type="text" id="searchInput" name="keyword" class="form-control" placeholder="Tìm kiếm..." autocomplete="off" style="border: none; height: 35px; font-size: 14px; width: 180px; background: transparent; box-shadow: none; padding-left: 0;">
+                        <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0;">
+                            <img src="images/icon/search.svg" alt="Search" style="width: 18px;">
+                        </button>
+                    </form>
+
+                   <div id="searchResults" class="search-dropdown shadow-lg" style="display: none; position: absolute; top: 120%; right: 0; width: 320px; background: white; border-radius: 8px; z-index: 9999; max-height: 340px; overflow-y: auto; border: 1px solid #f0f0f0;">
+                        </div>
                 </li>
-                <li class="nav-item cta cta-colored"><a href="wishlist.html" class="nav-link"><img src="images/icon/heart.svg" alt="Wishlist"></a>
-                </li>
-                <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a>
+                <li class="nav-item cta cta-colored">
+                    <a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a>
                 </li> 
-                <li class="nav-item cta cta-colored"><a href="login.html" class="nav-link"><img src="images/icon/account.svg" alt="Account"></a>
+                
+                <li class="nav-item cta cta-colored">
+                    <a href="login.html" class="nav-link" id="account-link">
+                        <img src="images/icon/account.svg" alt="Account">
+                        <span id="user-name-display" class="ml-2" style="color: #82ae46; font-weight: 600; display: none;"></span>
+                    </a>
                 </li> 
-              </ul>
+            </ul>
         </div>
     </div>
 </nav>
-    <!-- END nav -->
 
-    <div class="hero-wrap hero-bread" style="background-image: url('images/category-2.jpg');background-color: rgba(109, 99, 99, 0.522); 
-    background-blend-mode: darken;">
+
+
+    <section class="ftco-section">
       <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-9 ftco-animate text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang Chủ</a></span> <span class="mr-2"><a href="shop.html">Sản Phẩm</a></span> <span>Sản Phẩm Chi Tiết</span></p>
-            <h1 class="mb-0 bread">Sản Phẩm Chi Tiết</h1>
+        <div class="row">
+          <div class="col-lg-6 mb-4 ftco-animate">
+            <a href="" class="image-popup"><img id="product-img" src="" class="img-fluid" ></a>
+          </div>
+          <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+            <h3 id="product-name">Đang tải...</h3>
+            <div class="rating d-flex">
+              <p class="text-left mr-4">
+                <a href="#" class="mr-2">5.0</a>
+                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                <a href="#"><span class="ion-ios-star-outline"></span></a>
+                <a href="#"><span class="ion-ios-star-outline"></span></a>
+              </p>
+              <span id="product-status"></span>
+            </div>
+            
+            <p class="price d-flex align-items-center mb-3">
+              <span id="price" style="font-size: 28px; font-weight: 600; color: #82ae46;">Đang tải...</span>
+              <span id="packaging-info" class="text-muted ml-2" style="font-size: 18px; font-weight: 500;">/ Đơn vị</span>
+          </p>
+            <p id="product-desc"></p>
+
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <hr>
+                <!-- trọng lượng  -->
+              <div class="row mt-4 mb-3" id="product-size-wrapper" style="display: none;">
+                  <div class="col-12 d-flex align-items-center">
+                      <span style="font-weight: 600; color: #000; margin-right: 15px;">Trọng lượng: </span>
+                      <div id="product-size" class="d-flex ">
+                          </div>
+                  </div>
+              </div>
+                <div class="row mt-4">
+                  <div class = 'd-flex'>
+                    <p style="width:12rem"><strong>Mã sản phẩm:</strong> <span id="product-code"></span></p>
+                    <p style="width:12rem" ><strong>Danh mục:</strong> <span id="product-category"></span></p>
+                  </div>
+                  <p class="mb-3 ">
+                      <span style="font-weight: 600; color: #82ae46;">Nhà cung cấp:</span> 
+                      <span id="product-supplier" class="text-dark font-weight-thin ml-2">Đang tải...</span>
+                  </p>
+                </div>
+              </div>
+           
+              <div class="d-flex align-items-center">
+                <div class="input-group col-md-6 d-flex">
+                  <span class="input-group-btn mr-1">
+                    <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
+                     <i class="ion-ios-remove"></i>
+                    </button>
+                  </span>
+                  <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100" style="width: 5px;">
+                  <span class="input-group-btn ml-1">
+                    <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+                       <i class="ion-ios-add"></i>
+                   </button>
+                  </span>
+                </div>
+                <div class="btn btn-black py-2" id="add-cart-btn" style="width: 14rem; font-size:12px" onclick="addCart()">Thêm vào giỏ hàng</div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <section class="ftco-section">
-    	<div class="container">
-
-    		<div class="row">
-    			<div class="col-lg-6 mb-5 ftco-animate">
-    				<a href="" class="image-popup"><img id="product-img" src=""class="img-fluid" ></a>
-    			</div>
-    			<div class="col-lg-6 product-details pl-md-5 ftco-animate">
-    				<h3 id="product-name"></h3>
-    				<div class="rating d-flex">
-							<p class="text-left mr-4">
-								<a href="#" class="mr-2">5.0</a>
-								<a href="#"><span class="ion-ios-star-outline"></span></a>
-								<a href="#"><span class="ion-ios-star-outline"></span></a>
-								<a href="#"><span class="ion-ios-star-outline"></span></a>
-								<a href="#"><span class="ion-ios-star-outline"></span></a>
-								<a href="#"><span class="ion-ios-star-outline"></span></a>
-							</p>
-              <span id="product-status"></span>
-						</div>
-						
-                <div class="price" id="price"></div>
-
-                      <p id="product-desc"></p>
-						<div class="row mt-4">
-							<div class="col-md-6">
-                					  <hr>
-								<div class="form-group d-flex">
-  <div class="unit" id="product-units"></div>
-</div>
-					 <!-- Thông tin thêm -->
-                        <div class="row mt-4">
-                         <p><strong>Mã sản phẩm:</strong> <span id="product-code"></span></p>
-                          <p><strong>Danh mục:</strong> <span id="product-category"></span></p>
-
-                          </div>
-		                   
-						</div>
-						<div class="w-100"></div>
-              <div class = "d-flex  align-items-center ">
-							<div class="input-group col-md-6 d-flex ">
-	             	<span class="input-group-btn mr-1">
-	                	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
-	                   <i class="ion-ios-remove"></i>
-	                	</button>
-	            		</span>
-	             	<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100" style = "width: 5px;">
-	             	<span class="input-group-btn ml-1">
-	                	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-	                     <i class="ion-ios-add"></i>
-	                 </button>
-	             	</span>
-	          	</div>
-              <a href="cart.html" class="btn btn-black py-2 "   style="  width: 15rem; ">Thêm Vào Giỏ Hàng</a>
+   <section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 nav-link-wrap mb-4">
+            <div class="nav ftco-animate nav-pills justify-content-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Thông số sản phẩm</a>
+              <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Đánh giá sản phẩm</a>
             </div>
-	          	<div class="w-100"></div>
-	          	
-          	</div>
-          	
-    			</div>
-    		</div>
-    	</div>
-    </section>
-
-    <!-- FORM Bình LUận  -->
-	<section class="ftco-section bg-light">
-  <div class="container">
-    <h3 class="mb-5 text-center">Đánh giá sản phẩm</h3>
-
-    <div id="review-list" class="mb-5">
-    <!-- Các đánh giá sẽ được thêm vào đây -->
-
-    <hr class="my-5">
-
-    <!-- FORM -->
-    <h4 class="mb-4">Để lại bình luận</h4>
-
-    <input type="text" id="review-name" class="form-control mb-3" placeholder="Tên của bạn">
-    <textarea id="review-content" class="form-control mb-3" rows="4" placeholder="Nội dung đánh giá"></textarea>
-
-    <!-- CHỌN SAO -->
-    <div class="mb-3">
-      <label>Đánh giá:</label>
-      <div id="star-rating" class="star-box">
-        <span data-value="1">★</span>
-        <span data-value="2">★</span>
-        <span data-value="3">★</span>
-        <span data-value="4">★</span>
-        <span data-value="5">★</span>
-      </div>
-    </div>
-
-    <button onclick="addReview()" class="btn btn-success">
-      Đăng bình luận
-    </button>
-
-  </div>
-</section>
-	
-
-    <section class="ftco-section">
-    	<div class="container">
-				<div class="row justify-content-center mb-3 pb-3">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<span class="subheading">Sản Phẩm</span>
-            <h2 class="mb-4">Các sản phẩm liên quan</h2>
-            <p>Xa thật xa, phía sau những ngọn núi chữ, cách xa các quốc gia Vokalia và Consonantia.</p>
           </div>
-        </div>   		
-    	</div>
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-1.jpg" alt="Colorlib Template">
-    						<span class="status">30%</span>
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Ớt Chuông</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span class="mr-2 price-dc">120.000 VND.</span><span class="price-sale">80.000 VND.</span></p>
-		    					</div>
-	    					</div>
-	    					<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="checkout.html" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="wishlist.html" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="cart.html" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-2.jpg" alt="Colorlib Template">
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Dâu Tây</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>399.000 VND.</span></p>
-		    					</div>
-	    					</div>
-    						<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="checkout.html" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="wishlist.html" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="cart.html" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-3.jpg" alt="Colorlib Template">
-	    					<div class="overlay"></div>
-	    				</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Đậu Cove</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>120.000 VND.</span></p>
-		    					</div>
-	    					</div>
-    						<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="checkout.html" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="wishlist.html" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="cart.html" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="images/product-4.jpg" alt="Colorlib Template">
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Bắp Cải Tím</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span>180.000 VND.</span></p>
-		    					</div>
-	    					</div>
-    						<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="checkout.html" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="wishlist.html" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="cart.html" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
+          <div class="col-md-12 tab-wrap">
+            <div class="tab-content bg-white p-2 p-md-3 shadow-sm rounded" id="v-pills-tabContent">
+              
+              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <tbody id="specification-table">
+                            <tr><td colspan="1" class="text-center">Đang tải thông tin...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
+                <div class="row">
+                    <div class="col-md-6 mb-5 mb-md-0">
+                        <h4 class="mb-4" style="font-size: 18px; font-weight: 600;">Danh sách bình luận</h4>
+                        <div id="review-list">
+                          <p class="text-muted" id="no-review-msg">Chưa có đánh giá nào.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="review-form-wrap p-4 border rounded bg-light">
+                            <h4 class="mb-2" style="font-size: 14px; font-weight: 500;">Thêm đánh giá</h4>
+                            <p class="mb-3 text-muted" style="font-size: 12px;">Các trường bắt buộc được đánh dấu *</p>
+
+                            <div class="d-flex align-items-center mb-3">
+                              <span class="mr-3" style="font-size: 14px; font-weight: 500; color: #333;">Đánh giá của bạn *</span>
+                              <div id="star-rating" class="star-box" style="font-size: 0.8rem; cursor: pointer; color: #ccc;">
+                                <span data-value="1">★</span>
+                                <span data-value="2">★</span>
+                                <span data-value="3">★</span>
+                                <span data-value="4">★</span>
+                                <span data-value="5">★</span>
+                              </div>
+                            </div>
+
+                            <div class="form-group mb-3">
+                              <label for="review-content" style="font-size: 12px; font-weight: 500; color: #333;">Bài đánh giá của bạn *</label>
+                              <textarea id="review-content" class="form-control" rows="4" placeholder="Nhập trải nghiệm của bạn về sản phẩm..."></textarea>
+                            </div>
+
+
+                              <div class="d-flex " style = "justify-content: flex-start;  align-items: flex-end ">
+                                <div class="col-md-6 form-group mb-3 mb-md-0">
+                                  <label for="review-name" style="font-size: 12px; font-weight: 500; color: #333;">Tên *</label>
+                                  <input type="text" id="review-name" class="form-control">
+                                </div>
+  
+                              <button onclick="addReview()" class="btn text-white" style="background-color: #82ae46; font-weight: 500; border-radius: 4px; height: 50px">GỬI ĐI</button>
+                          </div>
+                              
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- CÁC SẢN PHẨM LIÊN QUAN -->
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-3 pb-3">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <span class="subheading">Sản Phẩm</span>
+            <h2 class="mb-4">Các sản phẩm liên quan</h2>
+          </div>
+
+        </div>      
+      </div>
+
+ 
+      <div class="container">
+        <div class="row " id = "related-products-list">
+          Đang tải sản phẩm 
+        </div>
+      </div>
     </section>
 
-		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+    <section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
       <div class="container py-4">
         <div class="row d-flex justify-content-center py-5">
           <div class="col-md-6">
-          	<h2 style="font-size: 22px;" class="mb-0">Đăng ký nhận bản tin của chúng tôi</h2>
-          	<span>Nhận thông tin cập nhật qua email về các cửa hàng mới nhất và các ưu đãi đặc biệt </span>
+            <h2 style="font-size: 22px;" class="mb-0">Đăng ký nhận bản tin của chúng tôi</h2>
+            <span>Nhận thông tin cập nhật qua email về các cửa hàng mới nhất và các ưu đãi đặc biệt </span>
           </div>
           <div class="col-md-6 d-flex align-items-center">
             <form action="#" class="subscribe-form">
@@ -324,15 +258,16 @@
         </div>
       </div>
     </section>
+
     <footer class="ftco-footer ftco-section">
       <div class="container">
-      	<div class="row">
-      		<div class="mouse">
-						<a href="#" class="mouse-icon">
-							<div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
-						</a>
-					</div>
-      	</div>
+        <div class="row">
+          <div class="mouse">
+            <a href="#" class="mouse-icon">
+              <div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+            </a>
+          </div>
+        </div>
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
@@ -350,26 +285,25 @@
              <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Hỗ trợ khách hàng</h2>
               <div class="d-flex">
-	              <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
-	                <li><a href="#" class="py-2 d-block">Thông tin vận chuyển </a></li>
-	                <li><a href="#" class="py-2 d-block">Chính sách đổi và trả hàng </a></li>
-	                <li><a href="#" class="py-2 d-block">Điều khoản và điều kiện</a></li>
-	                <li><a href="#" class="py-2 d-block">Chính sách bảo mật</a></li>
-	              </ul>
-	            
-	            </div>
+                <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+                  <li><a href="#" class="py-2 d-block">Thông tin vận chuyển </a></li>
+                  <li><a href="#" class="py-2 d-block">Chính sách đổi và trả hàng </a></li>
+                  <li><a href="#" class="py-2 d-block">Điều khoản và điều kiện</a></li>
+                  <li><a href="#" class="py-2 d-block">Chính sách bảo mật</a></li>
+                </ul>
+              </div>
             </div>
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Thông tin liên hệ</h2>
-            	<div class="block-23 mb-3">
-	              <ul>
-	               <li><span class="icon icon-map-marker"></span><span class="text">129 TRẦN PHÚ - HÀ ĐÔNG - HÀ NỘI</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 8260-595-561</span></a></li>
-	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">vegefoods@gmail.com</span></a></li>
-	              </ul>
-	            </div>
+              <h2 class="ftco-heading-2">Thông tin liên hệ</h2>
+              <div class="block-23 mb-3">
+                <ul>
+                 <li><span class="icon icon-map-marker"></span><span class="text">129 TRẦN PHÚ - HÀ ĐÔNG - HÀ NỘI</span></li>
+                  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+91 8260-595-561</span></a></li>
+                  <li><a href="#"><span class="icon icon-envelope"></span><span class="text">vegefoods@gmail.com</span></a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -380,11 +314,7 @@
       </div>
     </footer>
     
-  
-
-  <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
 
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -399,326 +329,11 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
+  <!-- 🔐 Auth Helper -->
+  <script src="js/auth-helper.js"></script>
   <script src="js/main.js"></script>
 
+  <script src="js/viewDetail.js"></script>
 
-<!--DỮ LIệu Sản Phẩm  -->
- <script>
-const products = {
-
-  otchuong: {
-    name: "Ớt Chuông",
-    img: "images/product-1.jpg",
-    code: "SP001",
-    category: "Rau củ",
-    stock: 120,
-    oldPrice: "120.000 VND",
-    newPrice: "80.000 VND",
-    desc: "Ớt chuông và ớt hiểm thuộc cùng một họ thực vật với cà chua, cà tím và khoai tây. Chúng không có họ hàng gì với cây tiêu, loại cây dùng để làm gia vị tiêu xay. Các loại ớt nhẹ phổ biến nhất là ớt chuông và ớt chuối. Có rất nhiều loại và giống ớt hiểm với độ cay khác nhau. Mức tiêu thụ ớt chuông tươi trung bình ở Mỹ là 11,4 pound/người vào năm 2017, tăng 6% so với năm 2015, và 7,7 pound/người đối với ớt hiểm vào năm 2017, tăng 8% so với năm 2015 (ERS 2018)."
-  },
-
-  dautay: {
-    name: "Dâu Tây",
-    img: "images/product-2.jpg",
-    code: "SP002",
-    category: "Trái cây",
-    stock: 80,
-    newPrice: "399.000 VND",
-    desc: "Dâu tây tươi đỏ mọng, vị ngọt thanh pha chút chua nhẹ, được tuyển chọn kỹ lưỡng và thu hoạch đúng độ chín. Sản phẩm giàu vitamin C, chất chống oxy hóa, tốt cho sức khỏe và làm đẹp da.\n\n Dâu tây có thể ăn trực tiếp, làm sinh tố, trộn salad hoặc dùng làm topping cho bánh ngọt và kem. Hương vị thơm ngon và màu sắc hấp dẫn của dâu tây sẽ làm hài lòng mọi thực khách."
-  },
-  daucove: {
-    name: "Đậu CoVe",
-    img: "images/product-3.jpg",
-    code: "SP003",
-    category: "Rau Củ",
-    stock: 300,
-	newPrice: "120.000 VND",
-    desc: "Đậu cô ve tươi ngon, giàu chất xơ và vitamin C. Được tuyển chọn kỹ lưỡng từ nguồn rau sạch, đảm bảo an toàn vệ sinh thực phẩm.\n\n Đậu cô ve có thể ăn trực tiếp, nấu canh hoặc trộn salad. Hương vị thanh mát, dễ ăn và rất bổ dưỡng."
-  },
-
-  bapcaitim: {
-    name: "Bắp cải tím",
-    img: "images/product-4.jpg",
-    code: "SP004",
-    category: "Rau củ",
-    stock: 300,
-    newPrice: "180.000 VND",
-    desc: "Bắp cải tím là một cây thuộc cải, có hình tròn, được tạo thành từ nhiều lớp lá cứng bên ngoài có màu tím, bên trong ruột màu trắng cuộn chặt với nhau, khi cầm lên nặng và chắc tay. Lá của bắp cải tím sẽ cứng và giòn hơn bắp cải xanh do thời gian trồng lâu hơn.\n\nKhi ăn có vị giòn ngọt, có thể ăn sốnghoặc nấu chín, và thường được dùng để tăng thêm hương vị, màu sắc cho các món salad, món xào, gỏi,..."
-  },
-
-  cachua: {
-    name: "Cà chua",
-    img: "images/product-5.jpg",
-    code: "SP005",
-    category: "Rau củ",
-    stock: 300,
-    oldPrice:"120.000 VND",
-    newPrice: "80.000 VND",
-    desc: "Cà chua (Solanum lycopersicum) là một loại quả thuộc họ Cà (Solanaceae), có nguồn gốc từ Nam Mỹ. Mặc dù được coi là trái cây, cà chua thường được sử dụng như một loại rau trong ẩm thực. Quả cà chua ban đầu có màu xanh, khi chín chuyển sang màu vàng hoặc đỏ, có vị hơi chua và giàu dinh dưỡng.\n\nCà chua chứa nhiều vitamin và khoáng chất quan trọng, bao gồm vitamin A, vitamin C, vitamin K, vitamin B6, folate và thiamin. Ngoài ra, chúng còn là nguồn cung cấp kali, mangan, magiê, canxi, phốt pho và đồng, cùng với chất xơ và protein. Đặc biệt, cà chua giàu lycopene, một chất chống oxy hóa mạnh mẽ mang lại nhiều lợi ích sức khỏe."
-  },
-
-  suplo: {
-    name: "Súp lơ",
-    img: "images/product-6.jpg",
-    code: "SP006",
-    category: "Rau củ",
-    stock: 300,
-    newPrice: "120.000 VND",
-    desc: "Súp lơ xanh hay gọi là bông cải xanh, có tên tiếng Anh là Broccoli và tên khoa học là Brassica oleracea var.italica Plenck, Cruciferaceae, thuộc họ Rau Cải - Brassicaceae."
-  },
-
-  carot: {
-    name: "Cà rốt",
-    img: "images/product-7.jpg",
-    code: "SP007",
-    category: "Rau củ",
-    stock: 300,
-    newPrice: "140.000 VND",
-    desc: "Cà rốt (Daucus carota) là một loại thực vật thuộc họ Apiaceae, nổi tiếng với phần củ mọng nước, chứa nhiều chất dinh dưỡng và là thực phẩm phổ biến trên toàn thế giới. Đây là cây thân thảo, phần củ thực chất là rễ phình to để tích trữ dinh dưỡng. Cà rốt được trồng nhiều ở các vùng khí hậu ôn đới và nhiệt đới.\n\nCà rốt không chỉ là một nguyên liệu nấu ăn đa năng mà còn là một nguồn dinh dưỡng tuyệt vời giúp tăng cường sức khỏe. Từ nước ép, súp, món xào đến các món tráng miệng, cà rốt dễ dàng kết hợp vào thực đơn hàng ngày của bạn."
-  },
-
-  fruitjuice: {
-    name: "Nước ép",
-    img: "images/product-8.jpg",
-    code: "SP008",
-    category: "Nước ép",
-    stock: 300,
-    newPrice: "490.000 VND",
-    desc: "Nước ép hoặc nước sinh tố là một dung dịch tự nhiên chứa các mô từ trái cây hoặc các loại rau. Nước ép được tạo ra bằng tác động ép, vắt hoặc giầm trái cây hay rau tươi không dùng nhiệt độ hay dung môi."
-  },
-
-  haytay: {
-    name: "Hành tây",
-    img: "images/product-9.jpg",
-    code: "SP009",
-    category: "Rau củ",
-    stock: 300,
-    oldPrice: "120.000 VND",
-    newPrice: "80.000 VND",
-    desc: "Hành tây là loại rau, khác với hành ta là loại gia vị. Nếu như hành ta có thể dùng cả phần lá và phần củ mà thực ra củ hành ta rất nhỏ thì hành tây chủ yếu dùng củ. Củ hành tây là phần thân hành của cây hành tây. Hành tây có họ hàng với hành tím thường phơi hay sấy khô làm hành khô. Hành tây có nguồn gốc từ Trung Á được truyền qua bên châu Âu rồi tới Việt Nam. Loài này hợp với khí hậu ôn đới.\n\nHành tây có tác dụng tiêu diệt các vi khuẩn lây nhiễm, bao gồm cả vi khuẩn E. coli và Salmonella. Ngoài ra, nó còn có hiệu quả chống lại bệnh lao và nhiễm trùng đường tiểu, chẳng hạn như viêm bàng quang. Vị hăng của hành làm tăng lưu thông máu và sự tiết mồ hôi."
-  },
-
-  tao: {
-    name: "Táo",
-    img: "images/product-10.jpg",
-    code: "SP0010",
-    category: "Trái cây",
-    stock: 300,
-    newPrice: "600.000 VND",
-    desc: "Táo tây là một loài cây rụng lá trong họ Hoa hồng được biết đến vì quả ngọt của nó (quả táo tây). Nó được trồng trên toàn thế giới như một cây ăn quả, và là những loài được trồng rộng rãi nhất trong chi Hải đường (Malus). Cây táo có nguồn gốc ở Trung Á, nơi tổ tiên của nó - loài táo dại Tân Cương - vẫn còn tồn tại cho đến ngày hôm nay.\n\nTáo là loại trái cây được yêu thích và vô cùng quen thuộc trên khắp thế giới. Không chỉ có hương vị thơm ngon, tươi mát mà thành phần dinh dưỡng của táo giàu carbohydrate, chất xơ, chất chống oxy hóa, vitamin và khoáng chất. Táo là một món ăn nhẹ tuyệt vời khi đói và là một trong những loại trái cây được tiêu thụ nhiều nhất trên thế giới."
-  },
-
-  toi: {
-    name: "Tỏi",
-    img: "images/product-11.jpg",
-    code: "SP0011",
-    category: "Rau củ",
-    stock: 300,
-    newPrice: "190.000 VND",
-    desc: "Tỏi là một loài thực vật thuộc họ Hành, nghĩa là có họ hàng với hành tây, hành tím, tỏi tây, v.v... và cũng được con người sử dụng làm gia vị, thuốc, rau như những loài họ hàng của nó.\n\nTỏi có thể sử dụng thành gia vị trong nước chấm pha chế gồm mắm, tỏi, ớt, tương, đường...Hoặc tỏi được trộn đều với các món rau xào (nhất là rau muống xào...) khiến món ăn dậy mùi thơm. Tỏi cũng được làm nước muối tỏi và ớt. Trong nấu ăn một số món có kèm theo tỏi phi."
-  },
-
-  ot: {
-    name: "Ớt đỏ",
-    img: "images/product-12.jpg",
-    code: "SP0012",
-    category: "Rau củ",
-    stock: 300,
-    newPrice: "50.000 VND",
-    desc: "Ớt có nhiều các chất khoáng, vi lượng như kẽm, selen, canxi, magiê, nhiều vitamin A, vitamin C và các vitamin nhóm B khác, nhiều hoạt chất sinh học quý như các chất chống oxy hóa (antioxidant), chất chống kết dính tiểu cầu, chất “giống” nitroglycerin có tác dụng giãn động mạch vành..."
-  },
-
-  
-
-  
-
-};
-
-
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
-
-if(products[id]){
-
-  const p = products[id];
-
-  document.getElementById("product-name").innerText = p.name;
-  document.getElementById("product-img").src = p.img;
-  document.getElementById("product-img").alt = p.name;
-  document.getElementById("product-desc").innerText = p.desc;
-
-  document.getElementById("product-code").innerText = p.code;
-  document.getElementById("product-category").innerText = p.category;
-  // bảng đơn vị theo danh mục
-const categoryUnits = {
-
-"Rau củ":["Kg"],
-"Trái cây":["Kg","Quả"],
-"Nước ép":["Chai","ml"],
-"Hạt":["Kg"]
-
-}
-
-// render đơn vị
-const unitBox = document.getElementById("product-units")
-
-const units = categoryUnits[p.category]
-
-if(units){
-
-let html=""
-
-units.forEach((u,i)=>{
-
-html += `
-<button class="${i==0?'active':''}" onclick="selectUnit(this)">
-${u}
-</button>
-`
-
-})
-
-unitBox.innerHTML = html
-
-}
-
- // Giá
-const priceBox = document.getElementById("price");
-
-priceBox.innerHTML = `
-  ${p.oldPrice ? `<del>${p.oldPrice}</del>` : ""}
-  <span>${p.newPrice}</span>
-`;
-
-  // Tình trạng
-  const status = document.getElementById("product-status");
-  const btn = document.getElementById("add-cart-btn");
-
-  if(p.stock > 0){
-    status.innerText = "Còn hàng (" + p.stock + ")";
-    status.classList.add("text-success");
-  } else {
-    status.innerText = "Hết hàng";
-    status.classList.add("text-danger");
-    btn.style.display = "none";
-  }
-
-
-  function selectUnit(btn){
-
-document.querySelectorAll(".unit button").forEach(b=>{
-b.classList.remove("active")
-})
-
-btn.classList.add("active")
-
-}
-}
-</script>
-</script>
-
-<!-- Số lượng sản phẩm -->
-  <script>
-		$(document).ready(function(){
-
-		var quantitiy=0;
-		   $('.quantity-right-plus').click(function(e){
-		        // Stop acting like a button
-		        e.preventDefault();
-		        var quantity = parseInt($('#quantity').val());
-		        // Nếu  not undefined
-		            $('#quantity').val(quantity + 1);
-		        
-		    });
-
-		     $('.quantity-left-minus').click(function(e){
-		        e.preventDefault();
-		        var quantity = parseInt($('#quantity').val());
-
-		            if(quantity>0){
-		            $('#quantity').val(quantity - 1);
-		            }
-		    });
-		    
-		});
-	</script>
-
-
-
-
-
-    <!--Bình Luận-->
-	<script>
-
-let selectedRating = 0;
-const stars = document.querySelectorAll("#star-rating span");
-
-stars.forEach(star => {
-
-  star.addEventListener("click", function() {
-    selectedRating = this.dataset.value;
-    updateStars(selectedRating);
-  });
-
-  star.addEventListener("mouseover", function() {
-    updateStars(this.dataset.value);
-  });
-
-  star.addEventListener("mouseout", function() {
-    updateStars(selectedRating);
-  });
-
-});
-
-function updateStars(rating){
-  stars.forEach(star => {
-    if(star.dataset.value <= rating){
-      star.classList.add("active");
-    } else {
-      star.classList.remove("active");
-    }
-  });
-}
-
-function addReview(){
-
-  const name = document.getElementById("review-name").value;
-  const content = document.getElementById("review-content").value;
-
-  if(name === "" || content === "" || selectedRating == 0){
-    alert("Vui lòng nhập đầy đủ thông tin và chọn số sao!");
-    return;
-  }
-
- const reviewHTML = `
-  <div class="review-item mb-4 p-4 bg-white rounded position-relative">
-    <button onclick="deleteReview(this)" 
-            style="position:absolute; right:10px; top:10px; border:none; background:none; font-size:18px; cursor:pointer;">
-      ❌
-    </button>
-
-    <strong>${name}</strong>
-    <div class="stars text-warning">${"★".repeat(selectedRating)}</div>
-    <p>${content}</p>
-  </div>
-`;
-
-  document.getElementById("review-list")
-          .insertAdjacentHTML("afterbegin", reviewHTML);
-
-  // reset form
-  document.getElementById("review-name").value = "";
-  document.getElementById("review-content").value = "";
-  selectedRating = 0;
-  updateStars(0);
-
-}
-function deleteReview(button){
-  button.parentElement.remove();
-}
-
-</script>
   </body>
 </html>

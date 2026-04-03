@@ -20,11 +20,15 @@
     <link rel="stylesheet" href="css/jquery.timepicker.css">
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <link rel="stylesheet" href="css/style.css"> <link rel="stylesheet" href="css/profile.css"> <style>
-        /* Tui fix thêm một chút để không bị đè màu của trang index */
+        
+        
+        
         .user-profile-section { background: #f8f9fa; padding: 4em 0; }
         .profile-sidebar, .info-card { background: #fff; border-radius: 10px; box-shadow: 0px 10px 30px -10px rgba(0,0,0,0.1); padding: 30px; }
-        .nav-link img { width: 20px; height: 20px; } /* Đảm bảo icon tìm kiếm/giỏ hàng không bị to quá */
+        .nav-link img { width: 20px; height: 20px; } 
         .avatar-circle { width: 60px; height: 60px; background: #82ae46; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-bottom: 10px; }
         /* TAB */
 .tab-content{
@@ -34,191 +38,316 @@ display:none;
 .tab-content.active{
 display:block;
 }
+/* Hiệu ứng khi mã PIN đúng */
+.is-valid-pin {
+    border-color: #82ae46 !important; 
+    background-color: #f8fff0 !important;
+    box-shadow: 0 0 5px rgba(130, 174, 70, 0.5) !important;
+}
+
+/* Hiệu ứng khi đang kiểm tra (tùy chọn) */
+.checking-pin {
+    border-color: #ffc107 !important;
+}
     </style>
     
 </head>
 <body class="goto-here">
 
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Vegefoods</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="oi oi-menu"></span> Menu
-            </button>
 
-            <div class="collapse navbar-collapse" id="ftco-nav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="index.html" class="nav-link">TRANG CHỦ</a></li>
-                    <li class="nav-item"><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link">TIN TỨC</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li>
-                    
-                    <li class="nav-item cta cta-colored"><a href="search.html" class="nav-link"><img src="images/icon/search.svg" alt="Search"></a></li>
-                    <li class="nav-item cta cta-colored"><a href="wishlist.html" class="nav-link"><img src="images/icon/heart.svg" alt="Wishlist"></a></li>
-                    <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a></li>
-                    <li class="nav-item cta cta-colored active"><a href="profile.html" class="nav-link"><img src="images/icon/account.svg" alt="Account"></a></li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+    <div class="container d-flex align-items-center">
+        <a class="navbar-brand" href="#">Vegefoods</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#ftco-nav" aria-controls="ftco-nav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav mx-auto navbar-center">
+                <li class="nav-item active"><a href="index.html" class="nav-link">TRANG CHỦ</a></li>
+                <li class="nav-item "><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
+                <li class="nav-item"><a href="blog.html" class="nav-link">TIN TỨC</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li>
+            </ul>
+
+            <ul class="navbar-nav  align-items-center">
+                
+                <li class="nav-item position-relative mr-3">
+                    <form action="shop.html" method="GET" class="d-flex align-items-center mt-2 mt-lg-0" style="background: #ffffff; border-radius: 20px; padding: 2px 15px; border: 1px solid #e9ecef;">
+                        <input type="text" id="searchInput" name="keyword" class="form-control" placeholder="Tìm kiếm..." autocomplete="off" style="border: none; height: 35px; font-size: 14px; width: 180px; background: transparent; box-shadow: none; padding-left: 0;">
+                        <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0;">
+                            <img src="images/icon/search.svg" alt="Search" style="width: 18px;">
+                        </button>
+                    </form>
+
+                   <div id="searchResults" class="search-dropdown shadow-lg" style="display: none; position: absolute; top: 120%; right: 0; width: 320px; background: white; border-radius: 8px; z-index: 9999; max-height: 340px; overflow-y: auto; border: 1px solid #f0f0f0;">
+                        </div>
+                </li>
+                <li class="nav-item cta cta-colored">
+                    <a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a>
+                </li> 
+                
+                <li class="nav-item cta cta-colored">
+                    <a href="login.html" class="nav-link" id="account-link">
+                        <img src="images/icon/account.svg" alt="Account">
+                        <span id="user-name-display" class="ml-2" style="color: #82ae46; font-weight: 600; display: none;"></span>
+                    </a>
+                </li> 
+            </ul>
         </div>
-    </nav>
-    <section class="user-profile-section">
+    </div>
+</nav>
+
+    <section class="user-profile-section" id = "selection">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-lg-3 mb-4">
                     <div class="profile-sidebar">
                         <div class="text-center mb-4">
                             <div class="avatar-circle mx-auto">NA</div>
-                            <h5 class="mb-0">Nguyễn Hoài Anh</h5>
+                            <h5 class="mb-0" id = "user" value = ""></h5>
+                            <div><small class="text-muted" id = "mail" value = ""></small></div>
                             <small class="text-muted">Thành viên Bạc</small>
                         </div>
-                     <ul class="list-unstyled">
-    <li class="py-2 border-bottom">
-        <a href="#" class="text-success font-weight-bold" onclick="showTab('profile')">
-        Thông tin cá nhân
-        </a>
-    </li>
+                        <ul class="list-unstyled">
+                            <li class="py-2 border-bottom">
+                                <a href="#" class="text-success font-weight-bold" onclick="showTab('profile')">
+                                Thông tin cá nhân
+                                </a>
+                            </li>
 
-    <li class="py-2 border-bottom">
-        <a href="#" class="text-dark" onclick="showTab('address')">
-        Địa chỉ của tôi
-        </a>
-    </li>
+                            <li class="py-2 border-bottom">
+                                <a href="#" class="text-dark" onclick="showTab('password')">
+                                    Đổi mật khẩu
+                                </a>
+                            </li>
 
-    <li class="py-2">
-        <a href="#" class="text-danger" onclick="logout()">
-        Đăng xuất
-        </a>
-    </li>
-</ul>
+                            <li class="py-2 border-bottom">
+                                <a href="#" class="text-dark" onclick="showTab('address')">
+                                Địa chỉ của tôi
+                                </a>
+                            </li>
+
+                            <li class="py-2">
+                                <a href="#" class="text-danger" onclick="logout()">
+                                Đăng xuất
+                                </a>
+                            </li>
+                        </ul>
+
+                        
                     </div>
                 </div>
 
                 <div class="col-md-8 col-lg-9">
+                    <div class="row mb-2">
 
-    <div class="row mb-4">
+                        <div class="col-md-4 mb-2">
+                            <div class="info-card text-center py-4" onclick="showTab('orders')" style="cursor:pointer;">
+                                <h2 class="text-success mb-0" id="txt-order-count">0</h2>
+                                <span class="text-muted small uppercase">Đơn hàng</span>
+                            </div>
+                        </div>
 
-        <div class="col-md-4 mb-3">
-            <div class="info-card text-center py-4" onclick="showTab('orders')" style="cursor:pointer;">
-                <h2 class="text-success mb-0">05</h2>
-                <span class="text-muted small uppercase">Đơn hàng</span>
-            </div>
+                        <div class="col-md-4 mb-2">
+                            <div class="info-card text-center py-4" onclick="showTab('shipping')" style="cursor:pointer;">
+                                <h2 class="text-success mb-0">0</h2>
+                                <span class="text-muted small uppercase">Đang giao</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-2">
+                            <div class="info-card text-center py-4" onclick="showTab('review')" style="cursor:pointer;">
+                                <h2 class="text-success mb-0" id="txt-review-count" >0</h2>
+                                <span class="text-muted small uppercase">Đánh giá</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="orders" class="tab-content" style="display:none;">
+                    <h4>Đơn hàng của tôi</h4>
+                    <p>Danh sách đơn hàng sẽ hiển thị ở đây.</p>
+                    <!-- Đơn hàng-->
+                        <div class = "tab-content" id = "order-tab">
+                            <div id = "order-wrapper" class = "order-container" >
+                                <table id = "order-table">
+                                    <thead id = "order-border">
+                                        <tr>
+                                            <th>STT</th>
+                                            <th><input type="checkbox"></th>
+                                            <th>Mã đơn</th>
+                                            <th>Người nhận</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Ghi chú</th>
+                                            <th>Trạng thái</th>
+                                            <th>Ngày tạo</th>
+                                            <th>Tổng tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id = "order-list-content">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="review" class="tab-content" style="display:none;">
+                        <h4>Đánh giá của tôi</h4>
+                        <p>Các đánh giá sản phẩm sẽ hiển thị ở đây.</p>
+                    </div>
+                    
+                    <div class="info-card">
+
+                    <!-- THÔNG TIN CÁ NHÂN -->
+                    <div class="tab-content active" id="profile">
+
+                    <h4 class="mb-4">Thông tin cá nhân</h4>
+
+                    <form>
+                    <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Tên đăng nhập</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" id="username" value = "" required>
+                    </div>
+                    </div>
+
+                    <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Họ và tên</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" id = "fullname" value= ""  required>
+                    </div>
+                    </div>
+
+                    <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-9">
+                    <input type="email" class="form-control" id = "email" value="" required>
+                    </div>
+                    </div>
+
+                    <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Số điện thoại</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" id = "phone" value="" required>
+                    </div>
+                    </div>
+
+                    <div class="text-right">
+                    <button type = "submit" class="btn btn-primary py-2 px-4" id = "changeButton">
+                    Lưu thay đổi
+                    </button>
+                    </div>
+
+                    </form>
+
+                    </div>
+
+                    <!--ĐỔI MẬT KHẨU-->
+                    <div id="password" class="tab-content change">
+    <h4 class="mb-4">Đổi mật khẩu</h4>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Mật khẩu cũ</label>
+        <div class="col-sm-9">
+            <input type="password" class="form-control" id="oldPassword" required>
         </div>
-
-        <div class="col-md-4 mb-3">
-            <div class="info-card text-center py-4" onclick="showTab('shipping')" style="cursor:pointer;">
-                <h2 class="text-success mb-0">02</h2>
-                <span class="text-muted small uppercase">Đang giao</span>
-            </div>
-        </div>
-
-        <div class="col-md-4 mb-3">
-            <div class="info-card text-center py-4" onclick="showTab('review')" style="cursor:pointer;">
-                <h2 class="text-success mb-0">10</h2>
-                <span class="text-muted small uppercase">Đánh giá</span>
-            </div>
-        </div>
-
     </div>
-    <div id="orders" class="tab-content" style="display:none;">
-    <h4>Đơn hàng của tôi</h4>
-    <p>Danh sách đơn hàng sẽ hiển thị ở đây.</p>
-</div>
 
-<div id="shipping" class="tab-content" style="display:none;">
-    <h4>Đơn đang giao</h4>
-    <p>Danh sách đơn đang giao sẽ hiển thị ở đây.</p>
-</div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Mật khẩu mới</label>
+        <div class="col-sm-9">
+            <input type="password" class="form-control" id="newPassword" required>
+        </div>
+    </div>
 
-<div id="review" class="tab-content" style="display:none;">
-    <h4>Đánh giá của tôi</h4>
-    <p>Các đánh giá sản phẩm sẽ hiển thị ở đây.</p>
-</div>
-                   <div class="info-card">
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Xác nhận lại mật khẩu</label>
+        <div class="col-sm-9">
+            <input type="password" class="form-control" id="confirmPassword" required>
+        </div>
+    </div>
 
-<!-- THÔNG TIN CÁ NHÂN -->
-<div id="profile" class="tab-content active">
+    <div class="text-right">
+        <button type="button" class="btn btn-primary py-2 px-4" onclick="validateAndSendOTP()">Lưu thay đổi</button>
+    </div>
+                    </div>
 
-<h4 class="mb-4">Thông tin cá nhân</h4>
-
-<form>
-<div class="form-group row">
-<label class="col-sm-3 col-form-label">Tên đăng nhập</label>
-<div class="col-sm-9">
-<input type="text" class="form-control" value="">
-</div>
-</div>
-
-<div class="form-group row">
-<label class="col-sm-3 col-form-label">Họ và tên</label>
-<div class="col-sm-9">
-<input type="text" class="form-control" value="">
-</div>
-</div>
-
-<div class="form-group row">
-<label class="col-sm-3 col-form-label">Email</label>
-<div class="col-sm-9">
-<input type="email" class="form-control" value="">
-</div>
-</div>
-
-<div class="form-group row">
-<label class="col-sm-3 col-form-label">Số điện thoại</label>
-<div class="col-sm-9">
-<input type="text" class="form-control" value="">
-</div>
-</div>
-
-<div class="text-right">
-<button class="btn btn-primary py-2 px-4">
-Lưu thay đổi
-</button>
-</div>
-
-</form>
-
-</div>
-
-
-<!-- ĐỊA CHỈ -->
-<div id="address" class="tab-content">
-
-<h4 class="mb-4">Địa chỉ của tôi</h4>
-
-<div class="form-group row">
-<label class="col-sm-3 col-form-label">Địa chỉ 1</label>
-<div class="col-sm-9">
-<input type="text" class="form-control" value="">
-</div>
-</div>
-
-<div class="form-group row">
-<label class="col-sm-3 col-form-label">Địa chỉ 2</label>
-<div class="col-sm-9">
-<input type="text" class="form-control" value="">
-</div>
-</div>
-
-<div class="text-right">
-<button class="btn btn-primary py-2 px-4">
-Lưu thay đổi
-</button>
-</div>
-</div>
-
-
-<!-- VOUCHER -->
-<div id="voucher" class="tab-content">
-
-<h4 class="mb-4">Mã giảm giá</h4>
-
-<p>SALE10 - Giảm 10%</p>
-<p>FREESHIP - Miễn phí vận chuyển</p>
-
-</div>
-
-</div>
+<div class="modal fade" id="otpModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xác thực mã PIN</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Một mã PIN đã được gửi đến Email của bạn. Vui lòng kiểm tra và nhập vào bên dưới.</p>
+                
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control text-center" id="otpCode" 
+                           placeholder="Nhập 6 số..." maxlength="6" 
+                           style="font-size: 24px; letter-spacing: 5px; font-weight: bold;">
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-transparent d-none" id="otp-icon-container">
+                            <i class="fa fa-check-circle text-success" id="otp-success-icon"></i>
+                        </span>
+                    </div>
                 </div>
+                
+                <div id="otp-timer" class="text-muted small"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary" id="btnConfirmChange" onclick="finalSubmitChangePassword(event)">Xác nhận đổi mật khẩu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                    <!-- ĐỊA CHỈ -->
+                    <div id="address" class="tab-content">
+
+                    <h4 class="mb-4">Địa chỉ của tôi</h4>
+
+                    <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Địa chỉ 1</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" value="">
+                    </div>
+                    </div>
+
+                    <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Địa chỉ 2</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" value="">
+                    </div>
+                    </div>
+
+                    <div class="text-right">
+                    <button class="btn btn-primary py-2 px-4">
+                    Lưu thay đổi
+                    </button>
+                    </div>
+                    </div>
+
+
+
+                    <!-- VOUCHER -->
+                    <div id="voucher" class="tab-content">
+
+                    <h4 class="mb-4">Mã giảm giá</h4>
+
+                    <p>SALE10 - Giảm 10%</p>
+                    <p>FREESHIP - Miễn phí vận chuyển</p>
+
+                    </div>
+
+                    </div>
+
+                </div>  
             </div>
         </div>
     </section>
@@ -233,41 +362,13 @@ Lưu thay đổi
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/aos.js"></script>
+    <!-- 🔐 Auth Helper -->
+    <script src="js/auth-helper.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="js/main.js"></script>
-    <script>// profile
+    <script src="js/user.js"></script>
 
-
-function showTab(tabId){
-
-let tabs = document.querySelectorAll(".tab-content");
-
-tabs.forEach(function(tab){
-tab.classList.remove("active");
-});
-
-document.getElementById(tabId).classList.add("active");
-
-}
-
-function logout(){
-
-alert("Đã đăng xuất");
-
-window.location.href="login.html";
-
-}
-
-
-function showTab(tab){
-
-let tabs = document.querySelectorAll(".tab-content");
-
-tabs.forEach(function(t){
-    t.style.display = "none";
-});
-
-document.getElementById(tab).style.display = "block";
-
-}</script>
 </body>
 </html>
+

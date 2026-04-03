@@ -29,42 +29,54 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body class="goto-here">
-	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
+    
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light">
     <div class="container d-flex align-items-center">
-    <!-- LOGO -->
-         <a class="navbar-brand" href="#">Vegefoods</a>
-       <!-- NÚT MENU MOBILE -->
+        <a class="navbar-brand" href="#">Vegefoods</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#ftco-nav" aria-controls="ftco-nav"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu </button>
-        <!-- NAVBAR -->
         <div class="collapse navbar-collapse" id="ftco-nav">
-         <!-- MENU Ở GIỮA -->
             <ul class="navbar-nav mx-auto navbar-center">
                 <li class="nav-item active"><a href="index.html" class="nav-link">TRANG CHỦ</a></li>
-          <li class="nav-item "><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
+                <li class="nav-item "><a href="shop.html" class="nav-link">SẢN PHẨM</a></li>
                 <li class="nav-item"><a href="blog.html" class="nav-link">TIN TỨC</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li></ul>
+                <li class="nav-item"><a href="contact.html" class="nav-link">LIÊN HỆ</a></li>
+            </ul>
 
-            <!-- ICON BÊN PHẢI -->
-          <ul class="navbar-nav navbar-icons">
-              <li class="nav-item cta cta-colored"><a href="search.html" class="nav-link"><img src="images/icon/search.svg" alt="Search"></a>
+            <ul class="navbar-nav  align-items-center">
+                
+                <li class="nav-item position-relative mr-3">
+                    <form action="shop.html" method="GET" class="d-flex align-items-center mt-2 mt-lg-0" style="background: #ffffff; border-radius: 20px; padding: 2px 15px; border: 1px solid #e9ecef;">
+                        <input type="text" id="searchInput" name="keyword" class="form-control" placeholder="Tìm kiếm..." autocomplete="off" style="border: none; height: 35px; font-size: 14px; width: 180px; background: transparent; box-shadow: none; padding-left: 0;">
+                        <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0;">
+                            <img src="images/icon/search.svg" alt="Search" style="width: 18px;">
+                        </button>
+                    </form>
+
+                   <div id="searchResults" class="search-dropdown shadow-lg" style="display: none; position: absolute; top: 120%; right: 0; width: 320px; background: white; border-radius: 8px; z-index: 9999; max-height: 340px; overflow-y: auto; border: 1px solid #f0f0f0;">
+                        </div>
                 </li>
-                <li class="nav-item cta cta-colored"><a href="wishlist.html" class="nav-link"><img src="images/icon/heart.svg" alt="Wishlist"></a>
-                </li>
-                <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a>
+                <li class="nav-item cta cta-colored">
+                    <a href="cart.html" class="nav-link"><img src="images/icon/cart.svg" alt="Cart"></a>
                 </li> 
-                <li class="nav-item cta cta-colored"><a href="login.html" class="nav-link"><img src="images/icon/account.svg" alt="Account"></a>
+                
+                <li class="nav-item cta cta-colored">
+                    <a href="login.html" class="nav-link" id="account-link">
+                        <img src="images/icon/account.svg" alt="Account">
+                        <span id="user-name-display" class="ml-2" style="color: #82ae46; font-weight: 600; display: none;"></span>
+                    </a>
                 </li> 
-              </ul>
+            </ul>
         </div>
     </div>
 </nav>
+
     <!-- END nav -->
 
     <div class="hero-wrap hero-bread" style="background-image: url('images/category-4.jpg');  background-color: rgba(119, 111, 111, 0.522); 
-    background-blend-mode: darken;"">
+    background-blend-mode: darken;">
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
@@ -382,8 +394,7 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/google-map.js"></script>
+
   <script src="js/main.js"></script>
     
   </body>
